@@ -33,7 +33,7 @@ export const SubNavContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '6vw', // Generous, balanced spacing for chapter tabs
+  gap: '6vw', // Generous, balanced spacing that keeps items centered
   padding: '0.4vh 15vw',
   backgroundColor: 'rgba(15, 19, 31, 0.9)',
   border: '1px solid rgba(0, 229, 255, 0.25)',
