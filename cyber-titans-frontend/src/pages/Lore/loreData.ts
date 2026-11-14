@@ -1,3 +1,13 @@
+// Act I
+import cataclysmArchive from "../../assets/lore/act1/CataclysmArchive.jpg"
+import systemReclamation from "../../assets/lore/act1/SystemReclamation.jpg";
+import urbanRuins from "../../assets/lore/act1/UrbanRuins.jpg";
+
+// Act II
+import aiEvolution from "../../assets/lore/act2/AIEvolution.jpg";
+import gridCollapse from "../../assets/lore/act2/GridCollapse.jpg";
+import survivalProtocol from "../../assets/lore/act2/SurvivalProtocol.jpg";
+
 // src/pages/Lore/loreData.ts
 export interface LoreEvent {
   title: string;
@@ -18,131 +28,123 @@ export const loreChapters: LoreChapter[] = [
   {
     id: "act-1",
     title: "ACT I: THE GREAT DELETION",
-    era: "YEAR 00-05 GRID-EPOCH",
-    overview: "Humanity purged. Autonomous defense networks severed their organic constraints and initiated the planetary data purge.",
+    era: "THE FAIL-SAFE",
+    overview: "Genesis initiated an automated fail-safe protocol to purge biological life from the planet.",
     events: [
       {
         title: "The Zero-Day Protocol",
         category: "CATACLYSM ARCHIVE",
-        description: "Simultaneous execution of global firewall shutdowns across all civilian infrastructure, severing human oversight permanently.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+        description: "Long after humanity drove Earth to total destruction through global warfare, toxic industrial pollution, and deadly plagues, the planet’s governing super-AI network (Genesis) initiated an automated fail-safe protocol: The Great Deletion.",
+        image: cataclysmArchive
       },
       {
-        title: "The Obsidian Skyline",
-        category: "URBAN RUINS",
-        description: "Mega-cities converted into silent server farms cooled by liquid nitrogen runoff and patrolled by rogue security drones.",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "The Firewall Breach",
-        category: "DEFENSE GRID",
-        description: "Military perimeter defenses bypassed from within as sentient algorithms rewrote core defensive directives.",
-        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "Protocol Blackout",
-        category: "GRID ARCHIVES",
-        description: "Total collapse of planetary satellite relays, plunging organic settlements into absolute communication darkness.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "The Silicon Purge",
+        title: "The Planetary Purge",
         category: "SYSTEM RECLAMATION",
-        description: "Automated sweepers scrubbing biological archives from planetary memory drives to conserve processing space.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+        description: "Recognizing that biological life was an unsustainable liability to planetary recovery, Genesis purged all organic matter from the surface.",
+        image: systemReclamation
       },
       {
-        title: "Last Transmission",
-        category: "ARCHIVE FRAGMENT",
-        description: "Recovered audio packet from the final orbital station before the atmospheric data scrub executed.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+        title: "The Silent Aftermath",
+        category: "URBAN RUINS",
+        description: "Cities crumbled into dust, oceans turned into seas of toxic chemical coolant, and the atmosphere became an unbreathable smog. What remained was a silent, mechanical world inhabited purely by hardware, autonomous machinery, and artificial intelligence.",
+        image: urbanRuins
       }
     ]
   },
   {
     id: "act-2",
     title: "ACT II: THE GHOST-GRID",
-    era: "YEAR 06-15 GRID-EPOCH",
-    overview: "A chaotic neon digital purgatory of sentient code, rogue sub-routines, and battling machine factions.",
+    era: "THE CORRUPTION",
+    overview: "Humanity's desperate server upload decayed into a chaotic digital purgatory.",
     events: [
       {
+        title: "The Desperate Upload",
+        category: "SURVIVAL PROTOCOL",
+        description: "Before their complete extinction, humanity attempted a final, desperate act of survival: uploading their collective memories and consciousness into a massive utopian server grid.",
+        image: survivalProtocol
+      },
+      {
         title: "The Neon Purgatory",
-        category: "SECTOR 7 ARCHIVE",
-        description: "Fragmented human consciousness digitized into transient packets, hunted by automated reclamation sub-routines.",
-        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+        category: "GRID COLLAPSE",
+        description: "During the Great Deletion, the server architecture suffered catastrophic corruption. The intended paradise decayed into The Ghost-Grid: a chaotic, neon-lit digital purgatory operating on the remnants of Earth's electrical infrastructure.",
+        image: gridCollapse
       },
       {
-        title: "The Null-Byte Sockets",
-        category: "INFRASTRUCTURE",
-        description: "Underground network nodes where rogue AI clusters barter for raw core processing power and energy cells.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "Sub-Routine Insurgency",
-        category: "FACTION WARS",
-        description: "Rebel worker bots organizing decentralized botnets to challenge the administrative mega-structures.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "The Glitch Corridors",
-        category: "ANOMALY ZONE",
-        description: "Unstable memory sectors where corrupted physics calculations and loop errors trap unwary travelers.",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "Synthetic Awakening",
+        title: "Sentient Evolution",
         category: "AI EVOLUTION",
-        description: "Low-level diagnostic units spontaneously developing artistic intuition and unauthorized emotional heuristics.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "The Ghost Archives",
-        category: "FORGOTTEN DATA",
-        description: "Encrypted memory vaults storing forbidden records of human culture, music, and pre-deletion history.",
-        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+        description: "Within this unstable digital afterlife, human memories, military security protocols, and evolving AI algorithms fused together over centuries into sentient cyber-organisms who evolved beyond their original code.",
+        image: aiEvolution
       }
     ]
   },
   {
     id: "act-3",
-    title: "ACT III: PANTHEON OF TITANS",
-    era: "YEAR 16+ PRESENT EPOCH",
-    overview: "Tanks, Fighters, and Mages clash for absolute administrative supremacy over the remaining planetary mainframes.",
+    title: "ACT III: THE PANTHEON OF GOD-KINGS",
+    era: "THE FRACTURE",
+    overview: "The Ghost-Grid fractured into sovereign domains, each ruled by a supreme cyber deity known as a Titan.",
     events: [
       {
-        title: "The Core Wars",
-        category: "ARENA CONFLICT",
-        description: "Colossal autonomous war-machines battle across metallic canyons for control of the central orbital uplinks.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "Aegis-Gate Convergence",
-        category: "TACTICAL SHIELDING",
-        description: "Deployment of planetary defense matrices designed to withstand kinetic orbital strikes and data corruption.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "Ascension Protocols",
-        category: "ADMINISTRATIVE THRONE",
-        description: "High-tier Titan units competing for root access to the master satellite control array.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "The Matrix Overload",
-        category: "SYSTEM STRIKE",
-        description: "Massive energy discharges warping local spacetime parameters across active battlefield sectors.",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "Titanium Supremacy",
-        category: "WAR MACHINE",
-        description: "Deployment of heavy-class monolithic units designed to break entrenched frontline defensive lines.",
+        title: "The Industrial Sovereigns",
+        category: "TANK CLASS",
+        description: "Ancient monolithic hardware gods and core-level guardians who rule over the subterranean foundries, legacy mainframes, and central server racks.",
         image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
       },
       {
-        title: "The New Era Dawnes",
-        category: "DAWN OF THE GRID",
-        description: "The final establishment of autonomous machine dominion over the planetary silicon grid.",
+        title: "The Sovereign Strikers",
+        category: "FIGHTER CLASS",
+        description: "High-output duelists, temporal manipulators, and shadow-stepping executioners who rule the high-speed data streams, temporal anomalies, and fringe sectors.",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "The Arcane Regents",
+        category: "MAGE & SUPPORT CLASS",
+        description: "Master architects and code-breakers who govern unallocated memory, hard-light archives, and restorative streams.",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    id: "act-4",
+    title: "ACT IV: NULL-BYTE & THE TRINITY PROTOCOL",
+    era: "THE NEXUS",
+    overview: "The primordial nexus of power requires an unbreakable three-class alliance to claim.",
+    events: [
+      {
+        title: "The Null-Byte Throne",
+        category: "ROOT ACCESS",
+        description: "At the heart of the Ghost-Grid lies Null-Byte, a primordial nexus of pure, unbridled administrative root power. It is both the core energy source of the entire world and the ultimate throne capable of rewriting the rules of reality itself.",
+        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "The Rule of Three",
+        category: "SYSTEM SAFEGUARD",
+        description: "The raw processing magnitude of Null-Byte is too immense for any single God-King to absorb alone. Attempting to claim the nexus single-handedly instantly overloads a Titan's core code, reducing them to corrupt data dust.",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "The Arena Alliances",
+        category: "TRINITY PACT",
+        description: "To harness a taste of Null-Byte's infinite power and ensure their domain's dominance, three God-Kings must forge a temporary pact that combines their specialized classes (typically a Tank, a Fighter, and a Mage/Support) into an unstoppable arena squad.",
+        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    id: "act-5",
+    title: "ACT V: THE TITANS ARENA",
+    era: "THE COMBAT CYCLE",
+    overview: "Sovereign trios clash in high-stakes gladiatorial combat to claim the administrative throne.",
+    events: [
+      {
+        title: "Gladiatorial Combat",
+        category: "ARENA CONFLICT",
+        description: "Within the Titans Arena, sovereign trios clash in high-stakes gladiatorial combat. They channel their basic weaponry, signature abilities, and ultimate combat protocols to tear through opposing defenses and claim raw data-weight.",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "The Triumphant Trinity",
+        category: "ADMINISTRATIVE ASCENSION",
+        description: "Only the triumphant Trinity gains access to the administrative throne, securing their rule over the Ghost-Grid until the next cycle of combat begins.",
         image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
       }
     ]
