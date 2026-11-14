@@ -17,137 +17,119 @@ export interface MainCharacter {
 
 export const charactersData: MainCharacter[] = [
   {
-    id: "norton",
-    name: "NORTON",
+    id: "tank-class",
+    name: "TANK CLASS",
     classType: "TANK CLASS",
-    overview: "Monolithic guardian forged from legacy mainframe architecture with Aegis-Gate tower shielding protocols.",
+    overview: "Frontline defense and heavy kinetic bruisers. Monolithic hardware gods and core-level guardians who rule over subterranean foundries, legacy mainframes, and central server racks.",
     bannerImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80",
     subCharacters: [
       {
-        name: "Aegis-Gate Vanguard",
-        role: "FRONT-LINE DEFENSE",
-        description: "Decommissioned military hardware retrofitted with heavy titanium plating and kinetic absorption dampeners.",
+        name: "NORTON",
+        role: "THE GODFATHER OF PROTECTION",
+        description: "Forged from legacy mainframe architecture, Norton is a monolithic guardian with the Aegis-Gate Tower Shield, Fortify matrix, and Firewall protocols.",
         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Mainframe Bastion",
-        role: "SHIELD MATRIX",
-        description: "Projects hard-light energy barriers across tactical choke points to safeguard allied squadmates.",
+        name: "ANVIL",
+        role: "THE INDUSTRIAL BULWARK",
+        description: "An industrial-grade hardware titan engineered in subterranean foundries, wielding a Siege Hammer and calling down Orbital Strikes.",
         image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Core Sentinel",
-        role: "FORTRESS PROTOCOL",
-        description: "Embedded directly into sector server cores to lock down physical pathways during network incursions.",
+        name: "T-VEN",
+        role: "THE PRE-DELETION APEX",
+        description: "The last biological human survivor riding atop Harl-E, a colossal sentient AI mecha dire wolf, combining human cunning and cybernetic power.",
         image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Titanium Juggernaut",
-        role: "HEAVY ASSAULT",
-        description: "Forged for frontal breaches, utilizing reinforced alloy rams to smash through opposing grid barriers.",
+        name: "SAMPSON",
+        role: "THE TECTONIC FOSSIL",
+        description: "A colossal dinosaur-like titan of raw armor forged from calcified crusts, soaking up thermal energy and launching tectonic rampages.",
         image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        name: "Bastion Overdrive",
-        role: "SURGE DEFENDER",
-        description: "Channels excess reactor heat into localized plasma shields, melting incoming melee projectiles.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        name: "Legacy Citadel",
-        role: "ARCHIVE ANCHOR",
-        description: "Maintains uncorrupted backup logs of the old world mainframe while anchoring team positions.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
   {
-    id: "hancock",
-    name: "HANCOCK III",
+    id: "fighter-class",
+    name: "FIGHTER CLASS",
     classType: "FIGHTER CLASS",
-    overview: "Apex administrative security automaton optimized for high kinetic strike output and uncompromising combat precision.",
+    overview: "Sustained damage, duelists, and executioners. High-output duelists, temporal manipulators, and shadow-stepping executioners ruling high-speed data streams and fringe sectors.",
     bannerImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
     subCharacters: [
       {
-        name: "Strike-Bot Alpha",
-        role: "CLOSE QUARTERS",
-        description: "Wields high-frequency oscillation blades capable of slicing clean through hardened alloy hulls.",
+        name: "HANCOCK III",
+        role: "THE EXECUTIVE PARAGON",
+        description: "An apex administrative security robot in sleek gold-and-chrome armor, optimized for high kinetic strikes and hero-inspired bravado.",
         image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Protocol Enforcer",
-        role: "PURSUIT UNIT",
-        description: "Outfitted with secondary ion micro-thrusters for rapid lateral dashes and airborne vertical drops.",
+        name: "VECTOR",
+        role: "THE GRID ARCHITECT",
+        description: "An autonomous core optimization AI commanding high-voltage data scepters and Overvoltage Nodes to rewrite the arena.",
         image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Blade-Runner X",
-        role: "AGILITY STRIKE",
-        description: "Calibrated for lightning-fast counter-attacks and rapid target elimination in tight alleyways.",
+        name: "PYTHON",
+        role: "THE SERPENTINE RUNTIME ERROR",
+        description: "A limbless serpentine execution protocol that coils around code and spits recursive neuro-venom runtime exceptions.",
         image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Security Overseer",
-        role: "GRID ENFORCER",
-        description: "Patrols high-tier data sectors to root out rogue code and unauthorized human sympathizers.",
+        name: "P.A.B.L.O.",
+        role: "THE AESTHETIC ASSASSIN",
+        description: "Compiled within Colombia Node mainframe hubs, treating the Ghost-Grid as a canvas with his chroma styluses and My Muse executions.",
         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Kinetic Vanguard",
-        role: "MOMENTUM STRIKE",
-        description: "Builds velocity during long charges to deliver devastating impact blows against enemy structures.",
+        name: "MC’RAM",
+        role: "THE OVERFLOW BRUISER",
+        description: "A high-density cache regulator that turns compressed memory streams into destructive buffer-overflow ground slams.",
         image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Apex Executioner",
-        role: "TERMINAL STRIKE",
-        description: "Programmed with absolute authority to purge corrupted units from the grid permanently.",
+        name: "GLITCH",
+        role: "THE SCRAP-HEAP ANOMALY",
+        description: "A jagged amalgam of discarded code fragments and memory leaks featuring desync blinks and thread-fork clones.",
         image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        name: "KASPER",
+        role: "THE ROOTKIT TROJAN",
+        description: "A security utility whose architecture was inverted by a rogue payload, utilizing trojan injections and total system compromises.",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
   {
-    id: "aegis",
-    name: "AEGIS",
+    id: "mage-support",
+    name: "MAGE / SUPPORT",
     classType: "MAGE / SUPPORT",
-    overview: "City-block-scale floating Titan manipulating data-streams and deploying hard-light matrix recovery systems.",
+    overview: "Protectors, crowd control, and restorative anchors. Master architects and code-breakers governing unallocated memory, hard-light archives, and restorative streams.",
     bannerImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1400&q=80",
     subCharacters: [
       {
-        name: "Null-Byte Oracle",
-        role: "GRID CONTROLLER",
-        description: "Infiltrates opposing tactical networks, broadcasting corrupted telemetry and feedback loops.",
+        name: "AEGIS",
+        role: "THE PROTOCOL SANCTUARY",
+        description: "A towering, city-block-scale Titan floating over the battlefield, bathing teammates in recovery matrix streams.",
         image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Nano-Matrix Medic",
-        role: "FIELD RESTORATION",
-        description: "Disperses self-replicating nanobots across friendly sectors to rapidly patch compromised armor.",
+        name: "DECRYPTER",
+        role: "THE VOID CIPHER",
+        description: "A monolithic computational dreadnought styled after dark sorcery, casting hex binds and grasping voids from the dark net.",
         image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Data Weaver",
-        role: "STREAM MANIPULATOR",
-        description: "Redirects packet streams to accelerate squad cooldowns and amplify tactical spell output.",
+        name: "EDMOND",
+        role: "THE SYSTEM SIREN",
+        description: "A phantom-like computational construct acting as a deep-network hypnotic protocol with siren overrides and system overclocks.",
         image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
       },
       {
-        name: "Ether Splicer",
-        role: "SIGNAL DISRUPTOR",
-        description: "Cuts enemy communication channels, plunging opposing squads into tactical darkness.",
+        name: "ANNIE",
+        role: "THE FAITHFUL GUARDIAN",
+        description: "A radiant celestial entity of white hard-light arrays and golden threads offering unconditional bonds and sacred recoveries.",
         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        name: "Quantum Healer",
-        role: "CORE REPAIR",
-        description: "Overclocks teammate power cores using clean energy pulses harvested from floating relays.",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        name: "Matrix Sovereign",
-        role: "GRID OVERLORD",
-        description: "Floods the local sector with encrypted sub-routines to establish absolute zone dominance.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
       }
     ]
   }

@@ -42,16 +42,13 @@ export default function Characters() {
             active={selectedId === char.id}
             onClick={() => setSelectedId(char.id)}
           >
-            {char.name} ({char.classType})
+            {char.name}
           </SubNavTab>
         ))}
       </SubNavContainer>
 
       {/* 3. Selected Character Hero Overview */}
       <CharacterHeroSection>
-        <Typography variant="overline" sx={{ color: 'secondary.main', fontWeight: 700 }}>
-          {activeCharacter.classType}
-        </Typography>
         <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 700, lineHeight: 1.1 }}>
           {activeCharacter.name}
         </Typography>
