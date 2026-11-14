@@ -93,10 +93,18 @@ export const CharacterHeroSection = styled(Box)(({ theme }) => ({
   flexShrink: 0,
 }));
 
-export const SubGrid = styled(Box)({
+export const CarouselWrapper = styled(Box)({
   width: '100%',
   flex: 1,
   minHeight: 0,
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1vw',
+});
+
+export const SubGrid = styled(Box)({
+  width: '100%',
+  height: '100%',
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'nowrap',
@@ -125,6 +133,7 @@ export const SubImage = styled('img')({
   height: '40%',
   minHeight: '120px',
   objectFit: 'cover',
+  objectPosition: 'center 10%',
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',
   flexShrink: 0,
