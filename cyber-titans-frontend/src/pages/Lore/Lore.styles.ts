@@ -59,8 +59,8 @@ export const SubNavTab = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<TabProps>(({ theme, active }) => ({
   flex: 1,
-  minWidth: 0, // CRITICAL: Allows the button width to shrink so text can wrap
-  minHeight: '6vh', // CRITICAL: Doubles the height to ensure 2 lines of text fit comfortably
+  minWidth: 0,
+  minHeight: '6vh',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -114,17 +114,17 @@ export const LoreCard = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start',
-  gap: '1.5vh',
+  gap: '1vh',
   boxSizing: 'border-box',
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
-  overflowY: 'auto',
+  overflow: 'hidden',           // Prevents any card scrollbars
 }));
 
 export const LoreImage = styled('img')({
-  width: '100%',
-  height: '40%',
-  minHeight: '120px',
-  objectFit: 'cover',
+  maxWidth: '100%',
+  maxHeight: '34vh',            // Limits vertical height so it never overflows the card
+  objectFit: 'contain',         // Preserves 100% of the image pixels without cropping
+  alignSelf: 'center',          // Centers the image horizontally inside the card
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',
   flexShrink: 0,

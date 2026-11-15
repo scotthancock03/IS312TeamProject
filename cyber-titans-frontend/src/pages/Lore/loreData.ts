@@ -8,6 +8,20 @@ import aiEvolution from "../../assets/lore/act2/AIEvolution.jpg";
 import gridCollapse from "../../assets/lore/act2/GridCollapse.jpg";
 import survivalProtocol from "../../assets/lore/act2/SurvivalProtocol.jpg";
 
+// Act III
+import tankClass from "../../assets/lore/act3/Tank.jpg";
+import fighterClass from "../../assets/lore/act3/Fighter.jpg";
+import mageClass from "../../assets/lore/act3/Mage.jpg";
+
+// Act IV
+import rootAccess from "../../assets/lore/act4/Root.jpg";
+import systemSafeguard from "../../assets/lore/act4/System.jpg";
+import trinityPact from "../../assets/lore/act4/Trinity.jpg";
+
+// Act V
+import gladiatorialCombat from "../../assets/lore/act5/Arena.jpg";
+import triumphantTrinity from "../../assets/lore/act5/Admin.jpg";
+
 // src/pages/Lore/loreData.ts
 export interface LoreEvent {
   title: string;
@@ -87,19 +101,19 @@ export const loreChapters: LoreChapter[] = [
         title: "The Industrial Sovereigns",
         category: "TANK CLASS",
         description: "Ancient monolithic hardware gods and core-level guardians who rule over the subterranean foundries, legacy mainframes, and central server racks.",
-        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+        image: tankClass
       },
       {
         title: "The Sovereign Strikers",
         category: "FIGHTER CLASS",
         description: "High-output duelists, temporal manipulators, and shadow-stepping executioners who rule the high-speed data streams, temporal anomalies, and fringe sectors.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+        image: fighterClass
       },
       {
         title: "The Arcane Regents",
         category: "MAGE & SUPPORT CLASS",
         description: "Master architects and code-breakers who govern unallocated memory, hard-light archives, and restorative streams.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+        image: mageClass
       }
     ]
   },
@@ -113,19 +127,19 @@ export const loreChapters: LoreChapter[] = [
         title: "The Null-Byte Throne",
         category: "ROOT ACCESS",
         description: "At the heart of the Ghost-Grid lies Null-Byte, a primordial nexus of pure, unbridled administrative root power. It is both the core energy source of the entire world and the ultimate throne capable of rewriting the rules of reality itself.",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
+        image: rootAccess
       },
       {
         title: "The Rule of Three",
         category: "SYSTEM SAFEGUARD",
         description: "The raw processing magnitude of Null-Byte is too immense for any single God-King to absorb alone. Attempting to claim the nexus single-handedly instantly overloads a Titan's core code, reducing them to corrupt data dust.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+        image: systemSafeguard
       },
       {
         title: "The Arena Alliances",
         category: "TRINITY PACT",
         description: "To harness a taste of Null-Byte's infinite power and ensure their domain's dominance, three God-Kings must forge a temporary pact that combines their specialized classes (typically a Tank, a Fighter, and a Mage/Support) into an unstoppable arena squad.",
-        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+        image: trinityPact
       }
     ]
   },
@@ -139,13 +153,13 @@ export const loreChapters: LoreChapter[] = [
         title: "Gladiatorial Combat",
         category: "ARENA CONFLICT",
         description: "Within the Titans Arena, sovereign trios clash in high-stakes gladiatorial combat. They channel their basic weaponry, signature abilities, and ultimate combat protocols to tear through opposing defenses and claim raw data-weight.",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+        image: gladiatorialCombat
       },
       {
         title: "The Triumphant Trinity",
         category: "ADMINISTRATIVE ASCENSION",
         description: "Only the triumphant Trinity gains access to the administrative throne, securing their rule over the Ghost-Grid until the next cycle of combat begins.",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+        image: triumphantTrinity
       }
     ]
   }
