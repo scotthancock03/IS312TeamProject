@@ -130,7 +130,7 @@ export const SubCard = styled(Box)(({ theme }) => ({
 
 export const SubImage = styled('img')({
   width: '100%',
-  height: '40%',
+  height: '55%',
   minHeight: '120px',
   objectFit: 'cover',
   objectPosition: 'center 10%',
