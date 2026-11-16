@@ -9,9 +9,9 @@ export const PageContainer = styled(Box)(({ theme }) => ({
   padding: '1vh 2vw',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-start', // Keeps everything packed tightly to the top
+  justifyContent: 'flex-start',
   alignItems: 'stretch',
-  gap: '1vh', // Tight, consistent vertical gap between all sections
+  gap: '0.8vh',
   boxSizing: 'border-box',
   overflow: 'hidden',
 }));
@@ -20,26 +20,35 @@ export const NavbarContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '0.8vh 2vw',
+  padding: '0.6vh 2vw',
   backgroundColor: theme.palette.background.paper,
   border: '1px solid rgba(0, 229, 255, 0.4)',
   borderRadius: theme.shape.borderRadius,
   boxShadow: '0 0 1.5vw rgba(0, 229, 255, 0.1)',
   width: '100%',
   boxSizing: 'border-box',
+  flexShrink: 0,
 }));
 
 export const SubNavContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '6vw', // Generous, balanced spacing that keeps items centered
-  padding: '0.4vh 15vw',
+  justifyContent: 'space-between',
+  alignItems: 'stretch',
+  flexWrap: 'nowrap',
+  gap: '1.5vw',
+  padding: '0.6vh 1.5vw',
   backgroundColor: 'rgba(15, 19, 31, 0.9)',
   border: '1px solid rgba(0, 229, 255, 0.25)',
   borderRadius: theme.shape.borderRadius,
   width: '100%',
   boxSizing: 'border-box',
+  overflowX: 'auto',
+  msOverflowStyle: 'none',
+  scrollbarWidth: 'none',
+  flexShrink: 0,
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
 }));
 
 interface TabProps {
@@ -49,12 +58,21 @@ interface TabProps {
 export const SubNavTab = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<TabProps>(({ theme, active }) => ({
-  padding: '0.4vh 1.5vw',
+  flex: 1,
+  minWidth: 0,
+  minHeight: '6vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '1vh 1vw',
   borderRadius: '4px',
   cursor: 'pointer',
   fontWeight: 600,
   fontSize: '0.8rem',
   letterSpacing: '0.05em',
+  textAlign: 'center',
+  whiteSpace: 'normal',
+  lineHeight: '1.3',
   color: active ? '#07090e' : theme.palette.primary.main,
   backgroundColor: active ? theme.palette.primary.main : 'transparent',
   border: `1px solid ${active ? theme.palette.primary.main : 'rgba(0, 229, 255, 0.3)'}`,
@@ -66,38 +84,57 @@ export const SubNavTab = styled(Box, {
 }));
 
 export const CharacterHeroSection = styled(Box)(({ theme }) => ({
-  padding: '1vh 1.5vw',
+  padding: '0.8vh 1.5vw',
   backgroundColor: theme.palette.background.paper,
   border: '1px solid rgba(0, 229, 255, 0.35)',
   borderRadius: theme.shape.borderRadius,
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
   width: '100%',
+  flexShrink: 0,
 }));
+
+export const CarouselWrapper = styled(Box)({
+  width: '100%',
+  flex: 1,
+  minHeight: 0,
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1vw',
+});
 
 export const SubGrid = styled(Box)({
   width: '100%',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
   gap: '1.5vw',
+  alignItems: 'stretch',
 });
 
 export const SubCard = styled(Box)(({ theme }) => ({
+  flex: 1,
+  minWidth: 0,
   backgroundColor: theme.palette.background.paper,
   border: '1px solid rgba(0, 229, 255, 0.3)',
   borderRadius: theme.shape.borderRadius,
-  padding: '1vh 1.2vw',
+  padding: '1.2vw',
   display: 'flex',
-  gap: '1vw',
-  alignItems: 'center',
-  height: '19vh', // Compact height to prevent vertical spilling
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  gap: '1.5vh',
   boxSizing: 'border-box',
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
+  overflowY: 'auto',
 }));
 
 export const SubImage = styled('img')({
-  width: '32%',
-  height: '100%',
+  width: '100%',
+  height: '55%',
+  minHeight: '120px',
   objectFit: 'cover',
+  objectPosition: 'center 10%',
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',
+  flexShrink: 0,
 });

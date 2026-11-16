@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react';
 import { Typography, IconButton, Button, Box } from '@mui/material';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
+
+// Import local character thumbnail assets matching your characters page
+import nortonImg from "../../assets/character/tank/Norton.png";
+import hancockImg from "../../assets/character/fighter/Hancock.png";
+import aegisImg from "../../assets/character/mage/Aegis.png";
+
 import { 
   PageContainer, 
   NavbarContainer, 
@@ -33,7 +39,6 @@ export default function Home() {
       setActiveStep((prev) => (prev + 1) % carouselSlides.length);
     }, 5000);
 
-    // Clean up the timer when the component unmounts
     return () => clearInterval(timer);
   }, []);
 
@@ -112,45 +117,40 @@ export default function Home() {
         ))}
       </DotContainer>
 
-      {/* 3 Split-Preview Cards */}
+      {/* 3 Split-Preview Cards without Explore More buttons */}
       <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5vw' }}>
         {[
           { 
             name: "NORTON", 
             role: "TANK CLASS", 
             desc: "Monolithic guardian forged from legacy mainframe architecture with Aegis-Gate tower shielding.",
-            img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80"
+            img: nortonImg
           },
           { 
             name: "HANCOCK III", 
             role: "FIGHTER CLASS", 
             desc: "Apex administrative security robot optimized for high kinetic strike output and heroic precision.",
-            img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
+            img: hancockImg
           },
           { 
             name: "AEGIS", 
             role: "MAGE / SUPPORT", 
             desc: "City-block-scale Titan floating over battlefield deploying hard-light recovery matrices.",
-            img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=400&q=80"
+            img: aegisImg
           }
         ].map((card, idx) => (
           <PreviewCard key={idx}>
             <CardImageThumbnail src={card.img} alt={card.name} />
-            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
-              <Box>
-                <Typography variant="caption" sx={{ color: 'secondary.main', fontWeight: 700, letterSpacing: '0.05em' }}>
-                  {card.role}
-                </Typography>
-                <Typography variant="subtitle1" sx={{ color: 'primary.main', fontWeight: 600, lineHeight: 1.2 }}>
-                  {card.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem', mt: 0.5, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                  {card.desc}
-                </Typography>
-              </Box>
-              <Button component={RouterLink} to="/characters" variant="text" color="primary" sx={{ p: 0, minHeight: 0, alignSelf: 'flex-start', fontSize: '0.75rem' }}>
-                EXPLORE MORE &gt;
-              </Button>
+            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
+              <Typography variant="caption" sx={{ color: 'secondary.main', fontWeight: 700, letterSpacing: '0.05em' }}>
+                {card.role}
+              </Typography>
+              <Typography variant="subtitle1" sx={{ color: 'primary.main', fontWeight: 600, lineHeight: 1.2 }}>
+                {card.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem', mt: 0.5, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                {card.desc}
+              </Typography>
             </Box>
           </PreviewCard>
         ))}

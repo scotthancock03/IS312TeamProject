@@ -120,5 +120,6 @@ export const CardImageThumbnail = styled('img')({
   height: '100%',
   objectFit: 'cover',
   borderRadius: '4px',
+  objectPosition: 'center 10%',
   border: '1px solid rgba(0, 229, 255, 0.4)',
 });
