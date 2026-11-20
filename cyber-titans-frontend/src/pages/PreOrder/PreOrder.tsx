@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Typography, Button, Box, TextField } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { PageContainer, NavbarContainer, FormCard } from './PreOrder.styles';
+import { PageContainer, FormCard } from './PreOrder.styles';
 
 export default function PreOrder() {
   const [email, setEmail] = useState('');
@@ -69,21 +69,8 @@ export default function PreOrder() {
 
   return (
     <PageContainer>
-      
-      {/* 1. Main Navigation Bar */}
-      <NavbarContainer>
-        <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.1em' }}>
-          CYBER TITANS
-        </Typography>
-        <Box sx={{ display: 'flex', gap: { xs: 2, md: 5 } }}>
-          <Button component={RouterLink} to="/" color="inherit">Home</Button>
-          <Button component={RouterLink} to="/characters" color="inherit">Characters</Button>
-          <Button component={RouterLink} to="/lore" color="inherit">Lore</Button>
-          <Button component={RouterLink} to="/preorder" variant="outlined" color="primary" size="small">Pre-Order</Button>
-        </Box>
-      </NavbarContainer>
 
-      {/* 2. Pre-Order Form Container */}
+      {/* 1. Pre-Order Form Container */}
       <FormCard>
         <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 700, textAlign: 'center' }}>
           SECURE PRE-ORDER ACCESS

@@ -1,13 +1,11 @@
 // src/pages/Characters/Characters.tsx
 import { useState, useEffect } from 'react';
-import { Typography, Button, Box, IconButton } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Typography, Box, IconButton } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { charactersData } from './charactersData';
 import { 
   PageContainer, 
-  NavbarContainer, 
   SubNavContainer, 
   SubNavTab, 
   CharacterHeroSection, 
@@ -46,21 +44,8 @@ export default function Characters() {
 
   return (
     <PageContainer>
-      
-      {/* 1. Main Navigation Bar */}
-      <NavbarContainer>
-        <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.1em' }}>
-          CYBER TITANS
-        </Typography>
-        <Box sx={{ display: 'flex', gap: { xs: 2, md: 5 } }}>
-          <Button component={RouterLink} to="/" color="inherit">Home</Button>
-          <Button component={RouterLink} to="/characters" color="primary">Characters</Button>
-          <Button component={RouterLink} to="/lore" color="inherit">Lore</Button>
-          <Button component={RouterLink} to="/preorder" variant="outlined" color="primary" size="small">Pre-Order</Button>
-        </Box>
-      </NavbarContainer>
 
-      {/* 2. Secondary Character Selection Sub-Bar */}
+      {/* 1. Secondary Character Selection Sub-Bar */}
       <SubNavContainer>
         {charactersData.map((char) => (
           <SubNavTab 
@@ -73,7 +58,7 @@ export default function Characters() {
         ))}
       </SubNavContainer>
 
-      {/* 3. Selected Character Hero Overview */}
+      {/* 2. Selected Character Hero Overview */}
       <CharacterHeroSection>
         <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 700, lineHeight: 1.1 }}>
           {activeCharacter.name}
@@ -83,7 +68,7 @@ export default function Characters() {
         </Typography>
       </CharacterHeroSection>
 
-      {/* 4. Sub-Characters Carousel Grid with Left/Right Arrows */}
+      {/* 3. Sub-Characters Carousel Grid with Left/Right Arrows */}
       <CarouselWrapper>
         <IconButton 
           onClick={handlePrev} 

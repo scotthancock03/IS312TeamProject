@@ -1,11 +1,9 @@
 // src/pages/Lore/Lore.tsx
 import { useState } from 'react';
-import { Typography, Button, Box } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Typography, Box } from '@mui/material';
 import { loreChapters } from './loreData';
 import { 
   PageContainer, 
-  NavbarContainer, 
   SubNavContainer, 
   SubNavTab, 
   LoreHeroSection, 
@@ -20,21 +18,8 @@ export default function Lore() {
 
   return (
     <PageContainer>
-      
-      {/* 1. Main Navigation Bar */}
-      <NavbarContainer>
-        <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.1em' }}>
-          CYBER TITANS
-        </Typography>
-        <Box sx={{ display: 'flex', gap: { xs: 2, md: 5 } }}>
-          <Button component={RouterLink} to="/" color="inherit">Home</Button>
-          <Button component={RouterLink} to="/characters" color="inherit">Characters</Button>
-          <Button component={RouterLink} to="/lore" color="primary">Lore</Button>
-          <Button component={RouterLink} to="/preorder" variant="outlined" color="primary" size="small">Pre-Order</Button>
-        </Box>
-      </NavbarContainer>
 
-      {/* 2. Secondary Chapter Selection Sub-Bar */}
+      {/* 1. Secondary Chapter Selection Sub-Bar */}
       <SubNavContainer>
         {loreChapters.map((chap) => (
           <SubNavTab 
@@ -47,7 +32,7 @@ export default function Lore() {
         ))}
       </SubNavContainer>
 
-      {/* 3. Selected Chapter Hero Overview */}
+      {/* 2. Selected Chapter Hero Overview */}
       <LoreHeroSection>
         <Typography variant="overline" sx={{ color: 'secondary.main', fontWeight: 700 }}>
           {activeChapter.era}
@@ -60,7 +45,7 @@ export default function Lore() {
         </Typography>
       </LoreHeroSection>
 
-      {/* 4. Lore Events Grid */}
+      {/* 3. Lore Events Grid */}
       <LoreGrid>
         {activeChapter.events.map((event, idx) => (
           <LoreCard key={idx}>

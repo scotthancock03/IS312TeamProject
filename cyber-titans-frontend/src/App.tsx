@@ -1,7 +1,7 @@
-// src/App.tsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { gameTheme } from './theme/gameTheme';
+import Navbar from './components/Navbar';
 import Home from './pages/Home/Home';
 import Characters from './pages/Characters/Characters';
 import Lore from './pages/Lore/Lore';
@@ -13,6 +13,7 @@ export default function App() {
     <ThemeProvider theme={gameTheme}>
       <CssBaseline />
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/characters" element={<Characters />} />

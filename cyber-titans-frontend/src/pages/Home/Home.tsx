@@ -1,8 +1,7 @@
 // src/pages/Home/Home.tsx
 import { useState, useEffect } from 'react';
-import { Typography, IconButton, Button, Box } from '@mui/material';
+import { Typography, IconButton, Box } from '@mui/material';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
-import { Link as RouterLink } from 'react-router-dom';
 
 // Import local character thumbnail assets matching your characters page
 import nortonImg from "../../assets/character/tank/Norton.png";
@@ -11,7 +10,6 @@ import aegisImg from "../../assets/character/mage/Aegis.png";
 
 import { 
   PageContainer, 
-  NavbarContainer, 
   CarouselWrapper, 
   CarouselImage, 
   CarouselOverlay, 
@@ -52,19 +50,6 @@ export default function Home() {
 
   return (
     <PageContainer>
-      
-      {/* Navigation Bar */}
-      <NavbarContainer>
-        <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.1em' }}>
-          CYBER TITANS
-        </Typography>
-        <Box sx={{ display: 'flex', gap: { xs: 2, md: 5 } }}>
-          <Button component={RouterLink} to="/" color="primary">Home</Button>
-          <Button component={RouterLink} to="/characters" color="inherit">Characters</Button>
-          <Button component={RouterLink} to="/lore" color="inherit">Lore</Button>
-          <Button component={RouterLink} to="/preorder" variant="outlined" color="primary" size="small">Pre-Order</Button>
-        </Box>
-      </NavbarContainer>
 
       {/* 5-Picture Carousel Banner with side arrows */}
       <CarouselWrapper>

@@ -3,8 +3,11 @@ import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
 export const PageContainer = styled(Box)(({ theme }) => ({
-  width: '100vw',
-  height: '100vh',
+  width: '100%',
+  height: 'calc(100vh - 64px)',
+  [theme.breakpoints.down('md')]: {
+    height: 'calc(100vh - 56px)',
+  },
   backgroundColor: theme.palette.background.default,
   padding: '1vh 2vw',
   display: 'flex',
@@ -14,20 +17,6 @@ export const PageContainer = styled(Box)(({ theme }) => ({
   gap: '0.8vh',
   boxSizing: 'border-box',
   overflow: 'hidden',
-}));
-
-export const NavbarContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '0.6vh 2vw',
-  backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.4)',
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: '0 0 1.5vw rgba(0, 229, 255, 0.1)',
-  width: '100%',
-  boxSizing: 'border-box',
-  flexShrink: 0,
 }));
 
 export const SubNavContainer = styled(Box)(({ theme }) => ({
