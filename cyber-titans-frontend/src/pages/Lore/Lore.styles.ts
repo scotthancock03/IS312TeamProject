@@ -38,6 +38,12 @@ export const SubNavContainer = styled(Box)(({ theme }) => ({
   '&::-webkit-scrollbar': {
     display: 'none',
   },
+  [theme.breakpoints.down('md')]: {
+    alignItems: 'center',
+    gap: '1.5vw',
+    padding: '0.6vh 1.5vw',
+    overflowX: 'hidden',
+  },
 }));
 
 interface TabProps {
@@ -70,6 +76,15 @@ export const SubNavTab = styled(Box, {
     backgroundColor: theme.palette.primary.main,
     color: '#07090e',
   },
+  [theme.breakpoints.down('md')]: {
+    flex: 1,
+    minHeight: '4.6vh',
+    padding: '0.8vh 2vw',
+    fontSize: '0.72rem',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
 }));
 
 export const LoreHeroSection = styled(Box)(({ theme }) => ({
@@ -80,12 +95,26 @@ export const LoreHeroSection = styled(Box)(({ theme }) => ({
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
   width: '100%',
   flexShrink: 0, 
+  [theme.breakpoints.down('md')]: {
+    padding: '1vh 3vw',
+  },
+}));
+
+export const CarouselWrapper = styled(Box)(({ theme }) => ({
+  width: '100%',
+  flex: 1,
+  minHeight: 0,
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1vw',
+  [theme.breakpoints.down('md')]: {
+    gap: '1.5vw',
+  },
 }));
 
 export const LoreGrid = styled(Box)({
   width: '100%',
-  flex: 1,
-  minHeight: 0, 
+  height: '100%',
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'nowrap',
@@ -106,15 +135,22 @@ export const LoreCard = styled(Box)(({ theme }) => ({
   gap: '1vh',
   boxSizing: 'border-box',
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
-  overflow: 'hidden',           // Prevents any card scrollbars
+  overflowY: 'auto',
+  [theme.breakpoints.down('md')]: {
+    padding: '3vw',
+    gap: '1.2vh',
+  },
 }));
 
-export const LoreImage = styled('img')({
+export const LoreImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
-  maxHeight: '34vh',            // Limits vertical height so it never overflows the card
-  objectFit: 'contain',         // Preserves 100% of the image pixels without cropping
-  alignSelf: 'center',          // Centers the image horizontally inside the card
+  maxHeight: '34vh',
+  objectFit: 'contain',
+  alignSelf: 'center',
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',
   flexShrink: 0,
-});
+  [theme.breakpoints.down('md')]: {
+    maxHeight: '26vh',
+  },
+}));

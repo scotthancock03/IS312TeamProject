@@ -5,9 +5,6 @@ import { Box, Typography } from '@mui/material';
 export const PageContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   height: 'calc(100vh - 64px)',
-  [theme.breakpoints.down('md')]: {
-    height: 'calc(100vh - 56px)',
-  },
   backgroundColor: theme.palette.background.default,
   padding: '1.5vh 2vw 2vh 2vw',
   display: 'flex',
@@ -16,6 +13,13 @@ export const PageContainer = styled(Box)(({ theme }) => ({
   alignItems: 'stretch',
   boxSizing: 'border-box',
   overflow: 'hidden',
+  [theme.breakpoints.down('md')]: {
+    height: 'auto',
+    minHeight: 'calc(100vh - 56px)',
+    justifyContent: 'flex-start',
+    gap: '1.5vh',
+    overflowY: 'auto',
+  },
 }));
 
 export const CarouselWrapper = styled(Box)(({ theme }) => ({
@@ -33,6 +37,13 @@ export const CarouselWrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  [theme.breakpoints.down('md')]: {
+    maxWidth: '100%',
+    flex: 'none',
+    minHeight: '28vh',
+    maxHeight: '34vh',
+    margin: '0.5vh auto',
+  },
 }));
 
 export const CarouselImage = styled('img')({
@@ -103,13 +114,24 @@ export const PreviewCard = styled(Box)(({ theme }) => ({
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
   height: '17vh',
   boxSizing: 'border-box',
+  [theme.breakpoints.down('md')]: {
+    height: 'auto',
+    minHeight: '14vh',
+    padding: '1.4vh 3vw',
+    gap: '3vw',
+  },
 }));
 
-export const CardImageThumbnail = styled('img')({
+export const CardImageThumbnail = styled('img')(({ theme }) => ({
   width: '32%',
   height: '100%',
   objectFit: 'cover',
   borderRadius: '4px',
   objectPosition: 'center 10%',
   border: '1px solid rgba(0, 229, 255, 0.4)',
-});
+  [theme.breakpoints.down('md')]: {
+    width: '26vw',
+    height: '11vh',
+    flexShrink: 0,
+  },
+}));

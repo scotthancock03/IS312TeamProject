@@ -28,6 +28,19 @@ const carouselSlides = [
   { title: "NULL-BYTE NEXUS", subtitle: "Claim the ultimate administrative throne.", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=80" },
 ];
 
+const mobileArrowSx = {
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  width: { xs: 28, sm: 34, md: 40 },
+  height: { xs: 28, sm: 34, md: 40 },
+  p: 0,
+  bgcolor: 'rgba(0,0,0,0.6)',
+  color: 'primary.main',
+  border: '1px solid rgba(0,229,255,0.5)',
+  '&:hover': { bgcolor: 'primary.main', color: '#000' },
+};
+
 export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
 
@@ -57,11 +70,30 @@ export default function Home() {
           src={carouselSlides[activeStep].image} 
           alt={carouselSlides[activeStep].title} 
         />
-        <CarouselOverlay>
-          <CarouselTitle variant="h1">
+        <CarouselOverlay
+          sx={{
+            px: { xs: 5, sm: 7, md: 6 },
+          }}
+        >
+          <CarouselTitle
+            variant="h1"
+            sx={{
+              fontSize: { xs: '1.1rem', sm: '1.55rem', md: 'clamp(1.4rem, 3vw, 2.6rem)' },
+              lineHeight: 1.15,
+            }}
+          >
             {carouselSlides[activeStep].title}
           </CarouselTitle>
-          <Typography variant="subtitle1" sx={{ color: 'text.secondary', mt: 0.5, maxWidth: '700px' }}>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: 'text.secondary',
+              mt: 0.5,
+              maxWidth: '700px',
+              fontSize: { xs: '0.7rem', sm: '0.88rem', md: '1rem' },
+              lineHeight: 1.25,
+            }}
+          >
             {carouselSlides[activeStep].subtitle}
           </Typography>
         </CarouselOverlay>
@@ -69,25 +101,19 @@ export default function Home() {
         {/* Left Arrow */}
         <IconButton 
           onClick={handleBack} 
-          sx={{ 
-            position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', 
-            bgcolor: 'rgba(0,0,0,0.6)', color: 'primary.main', border: '1px solid rgba(0,229,255,0.5)', 
-            '&:hover': { bgcolor: 'primary.main', color: '#000' } 
-          }}
+          aria-label="previous slide"
+          sx={{ ...mobileArrowSx, left: { xs: 4, sm: 10, md: 20 } }}
         >
-          <ArrowBackIosNew fontSize="small" />
+          <ArrowBackIosNew sx={{ fontSize: { xs: 13, md: 18 } }} />
         </IconButton>
 
         {/* Right Arrow */}
         <IconButton 
           onClick={handleNext} 
-          sx={{ 
-            position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)', 
-            bgcolor: 'rgba(0,0,0,0.6)', color: 'primary.main', border: '1px solid rgba(0,229,255,0.5)', 
-            '&:hover': { bgcolor: 'primary.main', color: '#000' } 
-          }}
+          aria-label="next slide"
+          sx={{ ...mobileArrowSx, right: { xs: 4, sm: 10, md: 20 } }}
         >
-          <ArrowForwardIos fontSize="small" />
+          <ArrowForwardIos sx={{ fontSize: { xs: 13, md: 18 } }} />
         </IconButton>
       </CarouselWrapper>
 
@@ -103,7 +129,7 @@ export default function Home() {
       </DotContainer>
 
       {/* 3 Split-Preview Cards without Explore More buttons */}
-      <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5vw' }}>
+      <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: { xs: '1.1vh', md: '1.5vw' } }}>
         {[
           { 
             name: "NORTON", 
@@ -126,7 +152,7 @@ export default function Home() {
         ].map((card, idx) => (
           <PreviewCard key={idx}>
             <CardImageThumbnail src={card.img} alt={card.name} />
-            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
+            <Box sx={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
               <Typography variant="caption" sx={{ color: 'secondary.main', fontWeight: 700, letterSpacing: '0.05em' }}>
                 {card.role}
               </Typography>

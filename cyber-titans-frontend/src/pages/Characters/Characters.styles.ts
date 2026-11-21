@@ -70,6 +70,12 @@ export const SubNavTab = styled(Box, {
     backgroundColor: theme.palette.primary.main,
     color: '#07090e',
   },
+  [theme.breakpoints.down('md')]: {
+    flex: '0 0 auto',
+    minWidth: 'max-content',
+    padding: '0.9vh 3vw',
+    fontSize: '0.72rem',
+  },
 }));
 
 export const CharacterHeroSection = styled(Box)(({ theme }) => ({
@@ -80,16 +86,22 @@ export const CharacterHeroSection = styled(Box)(({ theme }) => ({
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
   width: '100%',
   flexShrink: 0,
+  [theme.breakpoints.down('md')]: {
+    padding: '1vh 3vw',
+  },
 }));
 
-export const CarouselWrapper = styled(Box)({
+export const CarouselWrapper = styled(Box)(({ theme }) => ({
   width: '100%',
   flex: 1,
   minHeight: 0,
   display: 'flex',
   alignItems: 'center',
   gap: '1vw',
-});
+  [theme.breakpoints.down('md')]: {
+    gap: '1.5vw',
+  },
+}));
 
 export const SubGrid = styled(Box)({
   width: '100%',
@@ -115,9 +127,13 @@ export const SubCard = styled(Box)(({ theme }) => ({
   boxSizing: 'border-box',
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
   overflowY: 'auto',
+  [theme.breakpoints.down('md')]: {
+    padding: '3vw',
+    gap: '1.2vh',
+  },
 }));
 
-export const SubImage = styled('img')({
+export const SubImage = styled('img')(({ theme }) => ({
   width: '100%',
   height: '55%',
   minHeight: '120px',
@@ -126,4 +142,8 @@ export const SubImage = styled('img')({
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',
   flexShrink: 0,
-});
+  [theme.breakpoints.down('md')]: {
+    height: '28vh',
+    maxHeight: '260px',
+  },
+}));
