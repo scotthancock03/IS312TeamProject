@@ -118,6 +118,7 @@ export default function Home() {
           src={currentSlide.image}
           alt={currentSlide.title}
           sx={{
+            objectFit: currentSlide.isTrailer ? 'contain' : 'cover',
             objectPosition: currentSlide.objectPosition || 'center 50%',
             cursor: 'pointer',
           }}
