@@ -5,25 +5,21 @@ import { CarouselWrapper as SharedCarouselWrapper } from '../../styles/shared.st
 
 export { PageContainer } from '../../styles/shared.styles';
 
-export const CarouselWrapper = styled(SharedCarouselWrapper)(({ theme }) => ({
+export const CarouselWrapper = styled(SharedCarouselWrapper)({
   position: 'relative',
   overflow: 'hidden',
+  width: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#07090e',
-  [theme.breakpoints.up('md')]: {
-    maxWidth: '1120px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-}));
+});
 
 export const CarouselImage = styled('img')({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  objectPosition: 'center 25%',
+  objectPosition: 'center 75%',
   display: 'block',
 });
 
@@ -126,6 +122,13 @@ export const PreviewCard = styled(Box)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   boxSizing: 'border-box',
   minWidth: 0,
+  cursor: 'pointer',
+  transition: 'border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
+  '&:hover': {
+    borderColor: theme.palette.primary.main,
+    boxShadow: '0 0 16px rgba(0, 229, 255, 0.14)',
+    transform: 'translateY(-1px)',
+  },
 }));
 
 export const CardImageThumbnail = styled('img')({

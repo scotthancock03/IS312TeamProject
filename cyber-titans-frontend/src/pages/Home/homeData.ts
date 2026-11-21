@@ -4,7 +4,7 @@ import home2Img from '../../assets/home/HOME2.jpg';
 import home3Img from '../../assets/home/HOME3.jpg';
 import home4Img from '../../assets/home/HOME4.jpg';
 import home5Img from '../../assets/home/HOME5.jpg';
-
+import trailerVideo from '../../assets/home/TRAILER.mp4';
 import nortonImg from '../../assets/character/tank/Norton.png';
 import hancockImg from '../../assets/character/fighter/Hancock.png';
 import aegisImg from '../../assets/character/mage/Aegis.png';
@@ -15,6 +15,8 @@ export interface CarouselSlide {
   subtitle: string;
   image: string;
   objectPosition?: string;
+  isTrailer?: boolean;
+  videoSrc?: string;
 }
 
 export interface PreviewCardItem {
@@ -25,6 +27,15 @@ export interface PreviewCardItem {
 }
 
 export const carouselSlides: CarouselSlide[] = [
+  {
+    act: 'OFFICIAL TRAILER',
+    title: 'CYBER TITANS — OFFICIAL TRAILER',
+    subtitle: 'Click to watch the official Cyber Titans promo trailer.',
+    image: home1Img,
+    objectPosition: 'center center',
+    isTrailer: true,
+    videoSrc: trailerVideo,
+  },
   {
     act: 'ACT I',
     title: 'ACT I: CYBER TITANS AWAKEN',

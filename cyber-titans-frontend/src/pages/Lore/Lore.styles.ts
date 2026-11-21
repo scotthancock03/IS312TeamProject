@@ -34,7 +34,7 @@ export const SubNavContainer = styled(Box)(({ theme }) => ({
   overflowX: 'auto',
   msOverflowStyle: 'none',
   scrollbarWidth: 'none',
-  flexShrink: 0, 
+  flexShrink: 0,
   '&::-webkit-scrollbar': {
     display: 'none',
   },
@@ -94,7 +94,7 @@ export const LoreHeroSection = styled(Box)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
   width: '100%',
-  flexShrink: 0, 
+  flexShrink: 0,
   [theme.breakpoints.down('md')]: {
     padding: '1vh 3vw',
   },
@@ -150,6 +150,11 @@ export const LoreImage = styled('img')(({ theme }) => ({
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',
   flexShrink: 0,
+  cursor: 'pointer',
+  transition: 'border-color 0.2s ease, transform 0.2s ease',
+  '&:hover': {
+    borderColor: theme.palette.primary.main,
+  },
   [theme.breakpoints.down('md')]: {
     maxHeight: '26vh',
   },

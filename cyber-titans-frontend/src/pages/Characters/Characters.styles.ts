@@ -1,6 +1,6 @@
 // src/pages/Characters/Characters.styles.ts
 import { styled } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 export {
   PageContainer,
@@ -24,7 +24,7 @@ export const SubCard = styled(Box)(({ theme }) => ({
   flex: 1,
   minWidth: 0,
   backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.3)',
+  border: '1px solid rgba(0, 229, 255, 0.28)',
   borderRadius: theme.shape.borderRadius,
   padding: '1vw',
   display: 'flex',
@@ -32,7 +32,7 @@ export const SubCard = styled(Box)(({ theme }) => ({
   justifyContent: 'flex-start',
   gap: '1vh',
   boxSizing: 'border-box',
-  boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
+  boxShadow: '0 0 18px rgba(0, 229, 255, 0.05)',
   overflowY: 'auto',
   [theme.breakpoints.down('md')]: {
     padding: '3vw',
@@ -42,15 +42,95 @@ export const SubCard = styled(Box)(({ theme }) => ({
 
 export const SubImage = styled('img')(({ theme }) => ({
   width: '100%',
-  height: '45%',
+  height: '43%',
   minHeight: '110px',
   objectFit: 'cover',
   objectPosition: 'center 10%',
   borderRadius: '4px',
-  border: '1px solid rgba(0, 229, 255, 0.4)',
+  border: '1px solid rgba(0, 229, 255, 0.35)',
   flexShrink: 0,
   [theme.breakpoints.down('md')]: {
     height: '28vh',
     maxHeight: '260px',
   },
+}));
+
+export const CardBody = styled(Box)({
+  flex: 1,
+  minHeight: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  overflowY: 'auto',
+  paddingRight: '4px',
+});
+
+export const CharacterTitleKicker = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontWeight: 700,
+  fontSize: '0.68rem',
+  letterSpacing: '0.09em',
+  textTransform: 'uppercase',
+  lineHeight: 1.2,
+}));
+
+export const CharacterNameHeading = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  fontWeight: 800,
+  fontSize: '1.15rem',
+  letterSpacing: '0.04em',
+  lineHeight: 1.2,
+  marginTop: '2px',
+}));
+
+export const OriginBio = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  fontSize: '0.78rem',
+  lineHeight: 1.4,
+  marginTop: theme.spacing(0.75),
+  paddingBottom: theme.spacing(0.9),
+  marginBottom: theme.spacing(0.9),
+  borderBottom: '1px solid rgba(0, 229, 255, 0.16)',
+}));
+
+export const KitList = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(0.75),
+}));
+
+export const KitRow = styled(Box)({
+  fontSize: '0.77rem',
+  lineHeight: 1.38,
+});
+
+interface SlotBadgeProps {
+  isUltimate?: boolean;
+}
+
+export const SlotBadge = styled('span', {
+  shouldForwardProp: (prop) => prop !== 'isUltimate',
+})<SlotBadgeProps>(({ theme, isUltimate }) => ({
+  display: 'inline-block',
+  fontSize: '0.62rem',
+  fontWeight: 800,
+  letterSpacing: '0.07em',
+  textTransform: 'uppercase',
+  padding: '1px 6px',
+  marginRight: '7px',
+  borderRadius: '3px',
+  verticalAlign: 'middle',
+  color: isUltimate ? theme.palette.secondary.main : theme.palette.primary.main,
+  backgroundColor: isUltimate ? 'rgba(255, 64, 129, 0.14)' : 'rgba(0, 229, 255, 0.12)',
+  border: `1px solid ${isUltimate ? 'rgba(255, 64, 129, 0.38)' : 'rgba(0, 229, 255, 0.32)'}`,
+}));
+
+export const MoveNameText = styled('span')({
+  color: '#f4f8ff',
+  fontWeight: 700,
+  marginRight: '5px',
+});
+
+export const MoveDescText = styled('span')(({ theme }) => ({
+  color: theme.palette.text.secondary,
 }));

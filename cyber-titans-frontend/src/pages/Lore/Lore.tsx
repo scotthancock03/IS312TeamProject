@@ -4,6 +4,8 @@ import { Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 import { loreChapters } from './loreData';
 import { useCarousel } from '../../hooks/useCarousel';
 import CarouselArrow from '../../components/CarouselArrow';
+import ImageLightbox from '../../components/ImageLightbox';
+import type { LightboxImageItem } from '../../components/ImageLightbox';
 import {
   PageContainer,
   SubNavContainer,
@@ -17,6 +19,7 @@ import {
 
 export default function Lore() {
   const [selectedId, setSelectedId] = useState(loreChapters[0].id);
+  const [lightboxImage, setLightboxImage] = useState<LightboxImageItem | null>(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -34,7 +37,9 @@ export default function Lore() {
   } = useCarousel(activeChapter.events, itemsPerPage, selectedId);
 
   const selectAct = (idx: number) => {
-    setSelectedId(loreChapters[Math.max(0, Math.min(loreChapters.length - 1, idx))].id);
+    if (!loreChapters.length) return;
+    const clamped = Math.max(0, Math.min(loreChapters.length - 1, idx));
+    setSelectedId(loreChapters[clamped].id);
   };
 
   const visibleChapters = isMobile ? [activeChapter] : loreChapters;
@@ -101,7 +106,19 @@ export default function Lore() {
         <LoreGrid>
           {visibleEvents.map((event, idx) => (
             <LoreCard key={`${activeChapter.id}-${currentIndex + idx}`}>
-              <LoreImage src={event.image} alt={event.title} />
+              <LoreImage
+                src={event.image}
+                alt={event.title}
+                onClick={() =>
+                  setLightboxImage({
+                    src: event.image,
+                    alt: event.title,
+                    act: [activeChapter.title, event.category].filter(Boolean).join(' • '),
+                    title: event.title,
+                    subtitle: event.description,
+                  })
+                }
+              />
               <Box sx={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', overflowY: 'auto' }}>
                 <Typography variant="caption" sx={{ color: 'secondary.main', fontWeight: 700 }}>
                   {event.category}
@@ -126,6 +143,9 @@ export default function Lore() {
           />
         )}
       </CarouselWrapper>
+
+      {/* 4. Expanded Lore Artwork Lightbox */}
+      <ImageLightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
     </PageContainer>
   );
 }
