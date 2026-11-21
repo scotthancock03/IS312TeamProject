@@ -1,48 +1,21 @@
 // src/pages/Home/Home.styles.ts
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+import { CarouselWrapper as SharedCarouselWrapper } from '../../styles/shared.styles';
 
-export const PageContainer = styled(Box)(({ theme }) => ({
-  width: '100%',
-  height: 'calc(100vh - 64px)',
-  backgroundColor: theme.palette.background.default,
-  padding: '1.5vh 2vw 2vh 2vw',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  alignItems: 'stretch',
-  boxSizing: 'border-box',
-  overflow: 'hidden',
-  [theme.breakpoints.down('md')]: {
-    height: 'auto',
-    minHeight: 'calc(100vh - 56px)',
-    justifyContent: 'flex-start',
-    gap: '1.5vh',
-    overflowY: 'auto',
-  },
-}));
+export { PageContainer } from '../../styles/shared.styles';
 
-export const CarouselWrapper = styled(Box)(({ theme }) => ({
+export const CarouselWrapper = styled(SharedCarouselWrapper)(({ theme }) => ({
   position: 'relative',
-  width: '100%',
-  maxWidth: '84vw',
-  flex: 1,
-  minHeight: '34vh',
-  maxHeight: '44vh',
-  margin: '1vh auto',
-  border: '2px solid rgba(0, 229, 255, 0.5)',
-  borderRadius: `${parseInt(String(theme.shape.borderRadius), 10) * 2}px`,
   overflow: 'hidden',
-  boxShadow: '0 0 2vw rgba(0, 229, 255, 0.2)',
   display: 'flex',
-  alignItems: 'center',
   justifyContent: 'center',
-  [theme.breakpoints.down('md')]: {
-    maxWidth: '100%',
-    flex: 'none',
-    minHeight: '28vh',
-    maxHeight: '34vh',
-    margin: '0.5vh auto',
+  alignItems: 'center',
+  backgroundColor: '#07090e',
+  [theme.breakpoints.up('md')]: {
+    maxWidth: '1120px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
 }));
 
@@ -50,11 +23,11 @@ export const CarouselImage = styled('img')({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  filter: 'brightness(0.65)',
-  transition: 'transform 0.5s ease-in-out',
+  objectPosition: 'center 25%',
+  display: 'block',
 });
 
-export const CarouselOverlay = styled(Box)({
+export const CarouselOverlay = styled(Box)(({ theme }) => ({
   position: 'absolute',
   inset: 0,
   display: 'flex',
@@ -62,25 +35,59 @@ export const CarouselOverlay = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   textAlign: 'center',
-  padding: '2vh 2vw',
-  background: 'linear-gradient(to top, rgba(7, 9, 14, 0.95) 0%, rgba(7, 9, 14, 0.4) 60%, transparent 100%)',
-});
+  background: 'linear-gradient(180deg, rgba(7,9,14,0.3) 0%, rgba(7,9,14,0.75) 100%)',
+  paddingLeft: theme.spacing(5),
+  paddingRight: theme.spacing(5),
+  [theme.breakpoints.up('sm')]: {
+    paddingLeft: theme.spacing(7),
+    paddingRight: theme.spacing(7),
+  },
+  [theme.breakpoints.up('md')]: {
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
+  },
+}));
 
 export const CarouselTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
-  fontWeight: 700,
+  fontWeight: 800,
   letterSpacing: '0.08em',
-  textShadow: '0 0 1.5vw rgba(0, 229, 255, 0.6)',
-  fontSize: 'clamp(1.4rem, 3vw, 2.6rem)',
+  textShadow: '0 0 18px rgba(0, 229, 255, 0.35)',
+  fontSize: '1.1rem',
+  lineHeight: 1.15,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.55rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: 'clamp(1.4rem, 3vw, 2.6rem)',
+  },
 }));
 
-export const DotContainer = styled(Box)({
+export const CarouselSubtitle = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  marginTop: theme.spacing(0.5),
+  maxWidth: '700px',
+  fontSize: '0.7rem',
+  lineHeight: 1.25,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '0.88rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1rem',
+  },
+}));
+
+export const DotContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '1.2vw',
-  margin: '0.5vh 0',
-});
+  gap: '8px',
+  padding: '0.4vh 0',
+  flexShrink: 0,
+  [theme.breakpoints.down('md')]: {
+    gap: '6px',
+  },
+}));
 
 interface DotProps {
   active?: boolean;
@@ -89,49 +96,79 @@ interface DotProps {
 export const PaginationDot = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<DotProps>(({ theme, active }) => ({
-  width: '1vw',
-  height: '1.1vw',
-  minWidth: '8px',
-  minHeight: '8px',
-  borderRadius: '50%',
-  backgroundColor: active ? theme.palette.primary.main : 'rgba(255, 255, 255, 0.2)',
+  width: active ? '22px' : '8px',
+  height: '8px',
+  borderRadius: '999px',
   cursor: 'pointer',
-  boxShadow: active ? '0 0 0.8vw #00e5ff' : 'none',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    backgroundColor: theme.palette.primary.main,
+  transition: 'all 0.25s ease',
+  backgroundColor: active ? theme.palette.primary.main : 'rgba(0, 229, 255, 0.25)',
+}));
+
+export const PreviewGrid = styled(Box)(({ theme }) => ({
+  width: '100%',
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gap: '1.1vh',
+  flexShrink: 0,
+  [theme.breakpoints.up('md')]: {
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '1.5vw',
   },
 }));
 
 export const PreviewCard = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.35)',
-  borderRadius: theme.shape.borderRadius,
-  padding: '1.2vh 1.2vw',
   display: 'flex',
-  gap: '1vw',
   alignItems: 'center',
-  boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
-  height: '17vh',
+  gap: '12px',
+  padding: '10px',
+  backgroundColor: theme.palette.background.paper,
+  border: '1px solid rgba(0, 229, 255, 0.3)',
+  borderRadius: theme.shape.borderRadius,
   boxSizing: 'border-box',
-  [theme.breakpoints.down('md')]: {
-    height: 'auto',
-    minHeight: '14vh',
-    padding: '1.4vh 3vw',
-    gap: '3vw',
-  },
+  minWidth: 0,
 }));
 
-export const CardImageThumbnail = styled('img')(({ theme }) => ({
-  width: '32%',
-  height: '100%',
-  objectFit: 'cover',
+export const CardImageThumbnail = styled('img')({
+  width: '72px',
+  height: '72px',
+  objectFit: 'contain',
+  objectPosition: 'center center',
   borderRadius: '4px',
-  objectPosition: 'center 10%',
-  border: '1px solid rgba(0, 229, 255, 0.4)',
-  [theme.breakpoints.down('md')]: {
-    width: '26vw',
-    height: '11vh',
-    flexShrink: 0,
-  },
+  border: '1px solid rgba(0, 229, 255, 0.35)',
+  flexShrink: 0,
+});
+
+export const PreviewCardContent = styled(Box)({
+  flex: 1,
+  minWidth: 0,
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+});
+
+export const PreviewRole = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontWeight: 700,
+  letterSpacing: '0.05em',
+  fontSize: '0.68rem',
+  lineHeight: 1.2,
+}));
+
+export const PreviewName = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  fontWeight: 600,
+  lineHeight: 1.2,
+  fontSize: '0.95rem',
+}));
+
+export const PreviewDescription = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  fontSize: '0.75rem',
+  lineHeight: 1.35,
+  marginTop: theme.spacing(0.5),
+  display: '-webkit-box',
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
+  overflow: 'hidden',
 }));
