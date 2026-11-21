@@ -1,23 +1,22 @@
 // src/pages/Characters/Characters.tsx
-import { useState, useEffect } from 'react';
-import { Typography, Box, IconButton, useTheme, useMediaQuery } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useState } from 'react';
+import { Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 import { charactersData } from './charactersData';
-import { 
-  PageContainer, 
-  SubNavContainer, 
-  SubNavTab, 
-  CharacterHeroSection, 
+import { useCarousel } from '../../hooks/useCarousel';
+import CarouselArrow from '../../components/CarouselArrow';
+import {
+  PageContainer,
+  SubNavContainer,
+  SubNavTab,
+  CharacterHeroSection,
   CarouselWrapper,
-  SubGrid, 
-  SubCard, 
-  SubImage 
+  SubGrid,
+  SubCard,
+  SubImage,
 } from './Characters.styles';
 
 export default function Characters() {
   const [selectedId, setSelectedId] = useState(charactersData[0].id);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -25,39 +24,21 @@ export default function Characters() {
 
   const activeCharacter = charactersData.find((c) => c.id === selectedId) || charactersData[0];
 
-  const maxIndex = Math.max(0, activeCharacter.subCharacters.length - itemsPerPage);
-
-  // Reset pagination index when switching between classes (Tank, Fighter, Mage)
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [selectedId]);
-
-  // Clamp index if screen size changes between 1 and 2 items per page
-  useEffect(() => {
-    setCurrentIndex((prev) => Math.min(prev, maxIndex));
-  }, [maxIndex]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-  };
-
-  const visibleSubCharacters = activeCharacter.subCharacters.slice(
-    currentIndex,
-    currentIndex + itemsPerPage
-  );
+  const {
+    index: currentIndex,
+    maxIndex,
+    visibleItems: visibleSubCharacters,
+    prev: handlePrev,
+    next: handleNext,
+  } = useCarousel(activeCharacter.subCharacters, itemsPerPage, selectedId);
 
   return (
     <PageContainer>
-
       {/* 1. Secondary Character Selection Sub-Bar */}
       <SubNavContainer>
         {charactersData.map((char) => (
-          <SubNavTab 
-            key={char.id} 
+          <SubNavTab
+            key={char.id}
             active={selectedId === char.id}
             onClick={() => setSelectedId(char.id)}
           >
@@ -78,19 +59,12 @@ export default function Characters() {
 
       {/* 3. Sub-Characters Carousel Grid with Left/Right Arrows */}
       <CarouselWrapper>
-        <IconButton 
-          onClick={handlePrev} 
+        <CarouselArrow
+          direction="left"
+          onClick={handlePrev}
           disabled={currentIndex === 0}
-          aria-label="previous character"
-          sx={{ 
-            color: 'primary.main', 
-            border: '1px solid rgba(0, 229, 255, 0.3)', 
-            backgroundColor: 'rgba(15, 19, 31, 0.8)',
-            '&.Mui-disabled': { opacity: 0.3 }
-          }}
-        >
-          <ChevronLeftIcon />
-        </IconButton>
+          label="previous character"
+        />
 
         <SubGrid>
           {visibleSubCharacters.map((sub, idx) => (
@@ -120,21 +94,13 @@ export default function Characters() {
           ))}
         </SubGrid>
 
-        <IconButton 
-          onClick={handleNext} 
+        <CarouselArrow
+          direction="right"
+          onClick={handleNext}
           disabled={currentIndex >= maxIndex}
-          aria-label="next character"
-          sx={{ 
-            color: 'primary.main', 
-            border: '1px solid rgba(0, 229, 255, 0.3)', 
-            backgroundColor: 'rgba(15, 19, 31, 0.8)',
-            '&.Mui-disabled': { opacity: 0.3 }
-          }}
-        >
-          <ChevronRightIcon />
-        </IconButton>
+          label="next character"
+        />
       </CarouselWrapper>
-
     </PageContainer>
   );
 }

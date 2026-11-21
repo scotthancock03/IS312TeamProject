@@ -1,73 +1,76 @@
 // src/pages/Lore/Lore.tsx
-import { useState, useEffect } from 'react';
-import { Typography, Box, IconButton, useTheme, useMediaQuery } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useState } from 'react';
+import { Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 import { loreChapters } from './loreData';
-import { 
-  PageContainer, 
-  SubNavContainer, 
-  SubNavTab, 
-  LoreHeroSection, 
+import { useCarousel } from '../../hooks/useCarousel';
+import CarouselArrow from '../../components/CarouselArrow';
+import {
+  PageContainer,
+  SubNavContainer,
+  SubNavTab,
+  LoreHeroSection,
   CarouselWrapper,
-  LoreGrid, 
-  LoreCard, 
-  LoreImage 
+  LoreGrid,
+  LoreCard,
+  LoreImage,
 } from './Lore.styles';
-
-const arrowSx = {
-  color: 'primary.main',
-  border: '1px solid rgba(0, 229, 255, 0.3)',
-  backgroundColor: 'rgba(15, 19, 31, 0.8)',
-  flexShrink: 0,
-  '&.Mui-disabled': { opacity: 0.3 },
-};
 
 export default function Lore() {
   const [selectedId, setSelectedId] = useState(loreChapters[0].id);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const actIdx = Math.max(0, loreChapters.findIndex((c) => c.id === selectedId));
   const activeChapter = loreChapters[actIdx] || loreChapters[0];
-  const maxIndex = Math.max(0, activeChapter.events.length - 1);
 
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [selectedId]);
+  const itemsPerPage = isMobile ? 1 : activeChapter.events.length;
+  const {
+    index: currentIndex,
+    maxIndex,
+    visibleItems: visibleEvents,
+    prev: handlePrev,
+    next: handleNext,
+  } = useCarousel(activeChapter.events, itemsPerPage, selectedId);
 
   const selectAct = (idx: number) => {
     setSelectedId(loreChapters[Math.max(0, Math.min(loreChapters.length - 1, idx))].id);
   };
 
   const visibleChapters = isMobile ? [activeChapter] : loreChapters;
-  const visibleEvents = isMobile
-    ? activeChapter.events.slice(currentIndex, currentIndex + 1)
-    : activeChapter.events;
 
   return (
     <PageContainer>
-
       {/* 1. Secondary Chapter Selection Sub-Bar (Carousel on Mobile) */}
       <SubNavContainer>
         {isMobile && (
-          <IconButton size="small" onClick={() => selectAct(actIdx - 1)} disabled={actIdx === 0} aria-label="previous act" sx={arrowSx}>
-            <ChevronLeftIcon fontSize="small" />
-          </IconButton>
+          <CarouselArrow
+            direction="left"
+            size="small"
+            onClick={() => selectAct(actIdx - 1)}
+            disabled={actIdx === 0}
+            label="previous act"
+          />
         )}
 
         {visibleChapters.map((chap) => (
-          <SubNavTab key={chap.id} active={selectedId === chap.id} onClick={() => setSelectedId(chap.id)}>
+          <SubNavTab
+            key={chap.id}
+            active={selectedId === chap.id}
+            onClick={() => setSelectedId(chap.id)}
+          >
             {chap.title}
           </SubNavTab>
         ))}
 
         {isMobile && (
-          <IconButton size="small" onClick={() => selectAct(actIdx + 1)} disabled={actIdx >= loreChapters.length - 1} aria-label="next act" sx={arrowSx}>
-            <ChevronRightIcon fontSize="small" />
-          </IconButton>
+          <CarouselArrow
+            direction="right"
+            size="small"
+            onClick={() => selectAct(actIdx + 1)}
+            disabled={actIdx >= loreChapters.length - 1}
+            label="next act"
+          />
         )}
       </SubNavContainer>
 
@@ -87,9 +90,12 @@ export default function Lore() {
       {/* 3. Lore Events Carousel on Mobile / Full Row on Desktop */}
       <CarouselWrapper>
         {isMobile && (
-          <IconButton onClick={() => setCurrentIndex((p) => Math.max(0, p - 1))} disabled={currentIndex === 0} aria-label="previous lore event" sx={arrowSx}>
-            <ChevronLeftIcon />
-          </IconButton>
+          <CarouselArrow
+            direction="left"
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            label="previous lore event"
+          />
         )}
 
         <LoreGrid>
@@ -112,12 +118,14 @@ export default function Lore() {
         </LoreGrid>
 
         {isMobile && (
-          <IconButton onClick={() => setCurrentIndex((p) => Math.min(maxIndex, p + 1))} disabled={currentIndex >= maxIndex} aria-label="next lore event" sx={arrowSx}>
-            <ChevronRightIcon />
-          </IconButton>
+          <CarouselArrow
+            direction="right"
+            onClick={handleNext}
+            disabled={currentIndex >= maxIndex}
+            label="next lore event"
+          />
         )}
       </CarouselWrapper>
-
     </PageContainer>
   );
 }

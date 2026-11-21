@@ -28,6 +28,18 @@ export default function Navbar({ brandTitle = 'CYBER TITANS' }: NavbarProps) {
   const { pathname } = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleOpenMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.blur();
+    setMobileOpen(true);
+  };
+
+  const handleCloseMenu = () => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    setMobileOpen(false);
+  };
+
   return (
     <>
       <AppBar position="sticky" color="transparent" elevation={0} sx={{ borderBottom: '1px solid rgba(0, 229, 255, 0.35)' }}>
@@ -67,7 +79,7 @@ export default function Navbar({ brandTitle = 'CYBER TITANS' }: NavbarProps) {
             color="inherit"
             edge="end"
             aria-label="menu"
-            onClick={() => setMobileOpen(true)}
+            onClick={handleOpenMenu}
             sx={{ display: { xs: 'inline-flex', md: 'none' } }}
           >
             <MenuIcon />
@@ -75,7 +87,7 @@ export default function Navbar({ brandTitle = 'CYBER TITANS' }: NavbarProps) {
         </Toolbar>
       </AppBar>
 
-      <Drawer anchor="right" open={mobileOpen} onClose={() => setMobileOpen(false)}>
+      <Drawer anchor="right" open={mobileOpen} onClose={handleCloseMenu}>
         <Box sx={{ width: 220, pt: 2 }}>
           <List>
             {[...NAV_LINKS, { label: 'Pre-Order', path: '/preorder' }].map((item) => (
@@ -84,7 +96,7 @@ export default function Navbar({ brandTitle = 'CYBER TITANS' }: NavbarProps) {
                 component={RouterLink}
                 to={item.path}
                 selected={pathname === item.path}
-                onClick={() => setMobileOpen(false)}
+                onClick={handleCloseMenu}
               >
                 <ListItemText primary={item.label} />
               </ListItemButton>
