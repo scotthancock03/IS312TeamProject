@@ -42,16 +42,21 @@ export const SubCard = styled(Box)(({ theme }) => ({
 
 export const SubImage = styled('img')(({ theme }) => ({
   width: '100%',
-  height: '43%',
-  minHeight: '110px',
+  height: '52%',
+  minHeight: '130px',
   objectFit: 'cover',
   objectPosition: 'center 10%',
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.35)',
   flexShrink: 0,
+  cursor: 'pointer',
+  transition: 'border-color 0.2s ease, transform 0.2s ease',
+  '&:hover': {
+    borderColor: theme.palette.primary.main,
+  },
   [theme.breakpoints.down('md')]: {
-    height: '28vh',
-    maxHeight: '260px',
+    height: '33vh',
+    maxHeight: '310px',
   },
 }));
 
