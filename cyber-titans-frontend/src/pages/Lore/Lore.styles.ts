@@ -143,11 +143,9 @@ export const LoreCard = styled(Box)(({ theme }) => ({
 }));
 
 export const LoreImage = styled('img')(({ theme }) => ({
-  width: '100%',
-  height: 'auto',
+  maxWidth: '100%',
   maxHeight: '34vh',
   objectFit: 'contain',
-  backgroundColor: '#07090e',
   alignSelf: 'center',
   borderRadius: '4px',
   border: '1px solid rgba(0, 229, 255, 0.4)',

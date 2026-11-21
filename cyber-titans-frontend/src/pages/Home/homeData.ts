@@ -5,6 +5,7 @@ import home3Img from '../../assets/home/HOME3.jpg';
 import home4Img from '../../assets/home/HOME4.jpg';
 import home5Img from '../../assets/home/HOME5.jpg';
 import trailerVideo from '../../assets/home/TRAILER.mp4';
+import trailerThumbImg from '../../assets/home/TRAILERTHUMB.jpg';
 import nortonImg from '../../assets/character/tank/Norton.png';
 import hancockImg from '../../assets/character/fighter/Hancock.png';
 import aegisImg from '../../assets/character/mage/Aegis.png';
@@ -27,12 +28,12 @@ export interface PreviewCardItem {
 }
 
 export const carouselSlides: CarouselSlide[] = [
-  {
+{
     act: 'OFFICIAL TRAILER',
     title: 'CYBER TITANS — OFFICIAL TRAILER',
     subtitle: 'Click to watch the official Cyber Titans promo trailer.',
-    image: home1Img,
-    objectPosition: 'center center',
+    image: trailerThumbImg,
+    objectPosition: 'center 15%', // Prevents the top of the trailer thumbnail from being cut off
     isTrailer: true,
     videoSrc: trailerVideo,
   },
