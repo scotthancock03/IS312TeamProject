@@ -173,14 +173,46 @@ export const ContentCard = styled(Box)(({ theme }) => ({
   gap: '1vh',
   boxSizing: 'border-box',
   boxShadow: `0 0 18px ${alpha(theme.palette.primary.main, 0.05)}`,
-  overflowY: 'auto',
+  overflow: 'hidden',
   [theme.breakpoints.down('md')]: {
-    padding: '3vw',
-    gap: '1.2vh',
+    padding: '2.5vw',
+    gap: '0.8vh',
   },
   [SHORT_LANDSCAPE]: {
     padding: '12px 14px',
     gap: '8px',
-    overflowY: 'visible',
+    overflow: 'visible',
   },
 }));
+
+export const CardMediaImage = styled('img')(({ theme }) => ({
+  width: '100%',
+  flex: '1 1 0',
+  minHeight: '80px',
+  objectFit: 'cover',
+  objectPosition: 'center 10%',
+  borderRadius: '4px',
+  border: `1px solid ${alpha(theme.palette.primary.main, 0.35)}`,
+  cursor: 'pointer',
+  transition: 'border-color 0.2s ease, transform 0.2s ease',
+  '&:hover': {
+    borderColor: theme.palette.primary.main,
+  },
+  [SHORT_LANDSCAPE]: {
+    flex: '0 0 auto',
+    height: '160px',
+    maxHeight: '160px',
+  },
+}));
+
+export const CardTextBody = styled(Box)({
+  flex: '0 0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  overflowY: 'auto',
+  [SHORT_LANDSCAPE]: {
+    flex: '0 0 auto',
+    overflowY: 'visible',
+  },
+});

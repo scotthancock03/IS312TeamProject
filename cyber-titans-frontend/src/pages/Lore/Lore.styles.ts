@@ -1,14 +1,17 @@
 // src/pages/Lore/Lore.styles.ts
 import { alpha, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
-import {
-  ContentCard,
-  ContentGrid,
-  HeroSection,
-  SHORT_LANDSCAPE,
-} from '../../styles/shared.styles';
+import { CardMediaImage, SHORT_LANDSCAPE } from '../../styles/shared.styles';
 
-export { PageContainer, SubNavContainer, CarouselWrapper } from '../../styles/shared.styles';
+export {
+  PageContainer,
+  SubNavContainer,
+  CarouselWrapper,
+  HeroSection as LoreHeroSection,
+  ContentGrid as LoreGrid,
+  ContentCard as LoreCard,
+  CardTextBody as LoreBody,
+} from '../../styles/shared.styles';
 
 interface TabProps {
   active?: boolean;
@@ -58,35 +61,9 @@ export const SubNavTab = styled(Box, {
   },
 }));
 
-export const LoreHeroSection = styled(HeroSection)({
-  // Inherits shared hero container styling and responsive spacing
-});
-
-export const LoreGrid = styled(ContentGrid)({
-  // Inherits shared horizontal content grid and short-landscape auto height
-});
-
-export const LoreCard = styled(ContentCard)({
-  padding: '1.2vw',
-});
-
-export const LoreImage = styled('img')(({ theme }) => ({
+export const LoreImage = styled(CardMediaImage)({
+  width: 'auto',
   maxWidth: '100%',
-  maxHeight: '34vh',
   objectFit: 'contain',
   alignSelf: 'center',
-  borderRadius: '4px',
-  border: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
-  flexShrink: 0,
-  cursor: 'pointer',
-  transition: 'border-color 0.2s ease, transform 0.2s ease',
-  '&:hover': {
-    borderColor: theme.palette.primary.main,
-  },
-  [theme.breakpoints.down('md')]: {
-    maxHeight: '26vh',
-  },
-  [SHORT_LANDSCAPE]: {
-    maxHeight: '150px',
-  },
-}));
+});
