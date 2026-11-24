@@ -17,6 +17,13 @@ export const PageContainer = styled(Box)(({ theme }) => ({
   gap: '0.8vh',
   boxSizing: 'border-box',
   overflow: 'hidden',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    height: 'auto',
+    minHeight: 'calc(100dvh - 56px)',
+    overflow: 'visible',
+    padding: '10px 2vw 20px',
+    gap: '10px',
+  },
 }));
 
 export const SubNavContainer = styled(Box)(({ theme }) => ({
@@ -87,6 +94,11 @@ export const SubNavTab = styled(Box, {
     whiteSpace: 'normal',
     overflow: 'hidden',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    minHeight: '34px',
+    padding: '6px 10px',
+    fontSize: '0.72rem',
+  },
 }));
 
 export const HeroSection = styled(Box)(({ theme }) => ({
@@ -100,6 +112,9 @@ export const HeroSection = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     padding: '1vh 3vw',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    padding: '8px 14px',
+  },
 }));
 
 export const CarouselWrapper = styled(Box)(({ theme }) => ({
@@ -111,5 +126,19 @@ export const CarouselWrapper = styled(Box)(({ theme }) => ({
   gap: '1vw',
   [theme.breakpoints.down('md')]: {
     gap: '1.5vw',
+  },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    flex: '0 0 auto',
+    minHeight: 'auto',
+    alignItems: 'center',
+    '& > button, & > .MuiIconButton-root': {
+      height: '44px !important',
+      width: '44px !important',
+      minWidth: '44px !important',
+      maxHeight: '44px !important',
+      borderRadius: '50% !important',
+      alignSelf: 'center !important',
+      flexShrink: 0,
+    },
   },
 }));

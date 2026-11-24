@@ -16,6 +16,13 @@ export const PageContainer = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   boxSizing: 'border-box',
   overflow: 'hidden',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    height: 'auto',
+    minHeight: 'calc(100dvh - 56px)',
+    justifyContent: 'flex-start',
+    padding: '12px 2vw 24px',
+    overflow: 'visible',
+  },
 }));
 
 export const FormCard = styled(Box)(({ theme }) => ({
@@ -31,4 +38,9 @@ export const FormCard = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   gap: '1.5vh',
   boxSizing: 'border-box',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    margin: '0 auto',
+    padding: '14px 20px',
+    gap: '10px',
+  },
 }));

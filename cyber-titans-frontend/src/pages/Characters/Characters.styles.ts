@@ -18,6 +18,9 @@ export const SubGrid = styled(Box)({
   flexWrap: 'nowrap',
   gap: '1.5vw',
   alignItems: 'stretch',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    height: 'auto',
+  },
 });
 
 export const SubCard = styled(Box)(({ theme }) => ({
@@ -37,6 +40,11 @@ export const SubCard = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     padding: '3vw',
     gap: '1.2vh',
+  },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    padding: '12px 14px',
+    gap: '8px',
+    overflowY: 'visible',
   },
 }));
 
@@ -58,6 +66,10 @@ export const SubImage = styled('img')(({ theme }) => ({
     height: '33vh',
     maxHeight: '310px',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    height: '170px',
+    maxHeight: '170px',
+  },
 }));
 
 export const CardBody = styled(Box)({
@@ -68,6 +80,11 @@ export const CardBody = styled(Box)({
   justifyContent: 'flex-start',
   overflowY: 'auto',
   paddingRight: '4px',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    flex: '0 0 auto',
+    overflowY: 'visible',
+    paddingRight: 0,
+  },
 });
 
 export const CharacterTitleKicker = styled(Typography)(({ theme }) => ({

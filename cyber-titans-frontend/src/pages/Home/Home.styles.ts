@@ -13,6 +13,10 @@ export const CarouselWrapper = styled(SharedCarouselWrapper)({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#07090e',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    flex: '0 0 auto',
+    height: '210px',
+  },
 });
 
 export const CarouselImage = styled('img')({

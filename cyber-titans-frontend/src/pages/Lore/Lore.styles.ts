@@ -17,6 +17,13 @@ export const PageContainer = styled(Box)(({ theme }) => ({
   gap: '0.8vh',
   boxSizing: 'border-box',
   overflow: 'hidden',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    height: 'auto',
+    minHeight: 'calc(100dvh - 56px)',
+    overflow: 'visible',
+    padding: '10px 2vw 20px',
+    gap: '10px',
+  },
 }));
 
 export const SubNavContainer = styled(Box)(({ theme }) => ({
@@ -85,6 +92,13 @@ export const SubNavTab = styled(Box, {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    minHeight: '34px',
+    padding: '6px 10px',
+    whiteSpace: 'normal',
+    overflow: 'visible',
+    textOverflow: 'clip',
+  },
 }));
 
 export const LoreHeroSection = styled(Box)(({ theme }) => ({
@@ -98,6 +112,9 @@ export const LoreHeroSection = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     padding: '1vh 3vw',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    padding: '8px 14px',
+  },
 }));
 
 export const CarouselWrapper = styled(Box)(({ theme }) => ({
@@ -110,6 +127,21 @@ export const CarouselWrapper = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     gap: '1.5vw',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    flex: '0 0 auto',
+    minHeight: 'auto',
+    alignItems: 'center',
+    '& > button, & > .MuiButtonBase-root, & > .MuiIconButton-root': {
+      height: '44px !important',
+      width: '44px !important',
+      minWidth: '44px !important',
+      maxWidth: '44px !important',
+      maxHeight: '44px !important',
+      borderRadius: '50% !important',
+      alignSelf: 'center !important',
+      flexShrink: 0,
+    },
+  },
 }));
 
 export const LoreGrid = styled(Box)({
@@ -120,6 +152,9 @@ export const LoreGrid = styled(Box)({
   flexWrap: 'nowrap',
   gap: '1.5vw',
   alignItems: 'stretch',
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    height: 'auto',
+  },
 });
 
 export const LoreCard = styled(Box)(({ theme }) => ({
@@ -140,6 +175,11 @@ export const LoreCard = styled(Box)(({ theme }) => ({
     padding: '3vw',
     gap: '1.2vh',
   },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    padding: '12px 14px',
+    gap: '8px',
+    overflowY: 'visible',
+  },
 }));
 
 export const LoreImage = styled('img')(({ theme }) => ({
@@ -157,5 +197,8 @@ export const LoreImage = styled('img')(({ theme }) => ({
   },
   [theme.breakpoints.down('md')]: {
     maxHeight: '26vh',
+  },
+  '@media (max-height: 450px) and (orientation: landscape)': {
+    maxHeight: '150px',
   },
 }));
