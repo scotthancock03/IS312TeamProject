@@ -4,9 +4,9 @@ import { Box } from '@mui/material';
 
 export const PageContainer = styled(Box)(({ theme }) => ({
   width: '100%',
-  height: 'calc(100vh - 64px)',
+  height: 'calc(100dvh - 64px)',
   [theme.breakpoints.down('md')]: {
-    height: 'calc(100vh - 56px)',
+    height: 'calc(100dvh - 56px)',
   },
   backgroundColor: theme.palette.background.default,
   padding: '1vh 2vw',

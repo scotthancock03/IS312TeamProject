@@ -63,8 +63,8 @@ export const SubImage = styled('img')(({ theme }) => ({
     borderColor: theme.palette.primary.main,
   },
   [theme.breakpoints.down('md')]: {
-    height: '33vh',
-    maxHeight: '310px',
+    height: '26dvh',
+    maxHeight: '220px',
   },
   '@media (max-height: 450px) and (orientation: landscape)': {
     height: '170px',
@@ -109,16 +109,16 @@ export const OriginBio = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
   fontSize: '0.78rem',
   lineHeight: 1.4,
-  marginTop: theme.spacing(0.75),
-  paddingBottom: theme.spacing(0.9),
-  marginBottom: theme.spacing(0.9),
+  marginTop: theme.spacing(0.4),
+  paddingBottom: theme.spacing(0.5),
+  marginBottom: theme.spacing(0.5),
   borderBottom: '1px solid rgba(0, 229, 255, 0.16)',
 }));
 
 export const KitList = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  gap: theme.spacing(0.75),
+  gap: theme.spacing(0.45),
 }));
 
 export const KitRow = styled(Box)({

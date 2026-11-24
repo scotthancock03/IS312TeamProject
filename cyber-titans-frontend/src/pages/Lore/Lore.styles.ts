@@ -2,29 +2,7 @@
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-export const PageContainer = styled(Box)(({ theme }) => ({
-  width: '100%',
-  height: 'calc(100vh - 64px)',
-  [theme.breakpoints.down('md')]: {
-    height: 'calc(100vh - 56px)',
-  },
-  backgroundColor: theme.palette.background.default,
-  padding: '1vh 2vw',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-start',
-  alignItems: 'stretch',
-  gap: '0.8vh',
-  boxSizing: 'border-box',
-  overflow: 'hidden',
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    height: 'auto',
-    minHeight: 'calc(100dvh - 56px)',
-    overflow: 'visible',
-    padding: '10px 2vw 20px',
-    gap: '10px',
-  },
-}));
+export { PageContainer } from '../../styles/shared.styles';
 
 export const SubNavContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
