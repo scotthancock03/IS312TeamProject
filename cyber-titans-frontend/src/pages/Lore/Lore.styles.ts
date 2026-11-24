@@ -1,35 +1,14 @@
 // src/pages/Lore/Lore.styles.ts
-import { styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+import {
+  ContentCard,
+  ContentGrid,
+  HeroSection,
+  SHORT_LANDSCAPE,
+} from '../../styles/shared.styles';
 
-export { PageContainer } from '../../styles/shared.styles';
-
-export const SubNavContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'stretch',
-  flexWrap: 'nowrap',
-  gap: '1.5vw',
-  padding: '0.6vh 1.5vw',
-  backgroundColor: 'rgba(15, 19, 31, 0.9)',
-  border: '1px solid rgba(0, 229, 255, 0.25)',
-  borderRadius: theme.shape.borderRadius,
-  width: '100%',
-  boxSizing: 'border-box',
-  overflowX: 'auto',
-  msOverflowStyle: 'none',
-  scrollbarWidth: 'none',
-  flexShrink: 0,
-  '&::-webkit-scrollbar': {
-    display: 'none',
-  },
-  [theme.breakpoints.down('md')]: {
-    alignItems: 'center',
-    gap: '1.5vw',
-    padding: '0.6vh 1.5vw',
-    overflowX: 'hidden',
-  },
-}));
+export { PageContainer, SubNavContainer, CarouselWrapper } from '../../styles/shared.styles';
 
 interface TabProps {
   active?: boolean;
@@ -53,13 +32,13 @@ export const SubNavTab = styled(Box, {
   textAlign: 'center',
   whiteSpace: 'normal',
   lineHeight: '1.3',
-  color: active ? '#07090e' : theme.palette.primary.main,
+  color: active ? theme.palette.background.default : theme.palette.primary.main,
   backgroundColor: active ? theme.palette.primary.main : 'transparent',
-  border: `1px solid ${active ? theme.palette.primary.main : 'rgba(0, 229, 255, 0.3)'}`,
+  border: `1px solid ${active ? theme.palette.primary.main : alpha(theme.palette.primary.main, 0.3)}`,
   transition: 'all 0.3s ease',
   '&:hover': {
     backgroundColor: theme.palette.primary.main,
-    color: '#07090e',
+    color: theme.palette.background.default,
   },
   [theme.breakpoints.down('md')]: {
     flex: 1,
@@ -70,7 +49,7 @@ export const SubNavTab = styled(Box, {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-  '@media (max-height: 450px) and (orientation: landscape)': {
+  [SHORT_LANDSCAPE]: {
     minHeight: '34px',
     padding: '6px 10px',
     whiteSpace: 'normal',
@@ -79,86 +58,17 @@ export const SubNavTab = styled(Box, {
   },
 }));
 
-export const LoreHeroSection = styled(Box)(({ theme }) => ({
-  padding: '0.8vh 1.5vw',
-  backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.35)',
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
-  width: '100%',
-  flexShrink: 0,
-  [theme.breakpoints.down('md')]: {
-    padding: '1vh 3vw',
-  },
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    padding: '8px 14px',
-  },
-}));
-
-export const CarouselWrapper = styled(Box)(({ theme }) => ({
-  width: '100%',
-  flex: 1,
-  minHeight: 0,
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1vw',
-  [theme.breakpoints.down('md')]: {
-    gap: '1.5vw',
-  },
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    flex: '0 0 auto',
-    minHeight: 'auto',
-    alignItems: 'center',
-    '& > button, & > .MuiButtonBase-root, & > .MuiIconButton-root': {
-      height: '44px !important',
-      width: '44px !important',
-      minWidth: '44px !important',
-      maxWidth: '44px !important',
-      maxHeight: '44px !important',
-      borderRadius: '50% !important',
-      alignSelf: 'center !important',
-      flexShrink: 0,
-    },
-  },
-}));
-
-export const LoreGrid = styled(Box)({
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'nowrap',
-  gap: '1.5vw',
-  alignItems: 'stretch',
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    height: 'auto',
-  },
+export const LoreHeroSection = styled(HeroSection)({
+  // Inherits shared hero container styling and responsive spacing
 });
 
-export const LoreCard = styled(Box)(({ theme }) => ({
-  flex: 1,
-  minWidth: 0,
-  backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.3)',
-  borderRadius: theme.shape.borderRadius,
+export const LoreGrid = styled(ContentGrid)({
+  // Inherits shared horizontal content grid and short-landscape auto height
+});
+
+export const LoreCard = styled(ContentCard)({
   padding: '1.2vw',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-start',
-  gap: '1vh',
-  boxSizing: 'border-box',
-  boxShadow: '0 0 1vw rgba(0, 229, 255, 0.05)',
-  overflowY: 'auto',
-  [theme.breakpoints.down('md')]: {
-    padding: '3vw',
-    gap: '1.2vh',
-  },
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    padding: '12px 14px',
-    gap: '8px',
-    overflowY: 'visible',
-  },
-}));
+});
 
 export const LoreImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
@@ -166,7 +76,7 @@ export const LoreImage = styled('img')(({ theme }) => ({
   objectFit: 'contain',
   alignSelf: 'center',
   borderRadius: '4px',
-  border: '1px solid rgba(0, 229, 255, 0.4)',
+  border: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
   flexShrink: 0,
   cursor: 'pointer',
   transition: 'border-color 0.2s ease, transform 0.2s ease',
@@ -176,7 +86,7 @@ export const LoreImage = styled('img')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     maxHeight: '26vh',
   },
-  '@media (max-height: 450px) and (orientation: landscape)': {
+  [SHORT_LANDSCAPE]: {
     maxHeight: '150px',
   },
 }));

@@ -1,23 +1,24 @@
 // src/pages/Home/Home.styles.ts
-import { styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
-import { CarouselWrapper as SharedCarouselWrapper } from '../../styles/shared.styles';
+import {
+  CarouselWrapper as SharedCarouselWrapper,
+  ContentCard,
+  SHORT_LANDSCAPE,
+} from '../../styles/shared.styles';
 
 export { PageContainer } from '../../styles/shared.styles';
 
-export const CarouselWrapper = styled(SharedCarouselWrapper)({
+export const CarouselWrapper = styled(SharedCarouselWrapper)(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
-  width: '100%',
-  display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: '#07090e',
-  '@media (max-height: 450px) and (orientation: landscape)': {
+  backgroundColor: theme.palette.background.default,
+  [SHORT_LANDSCAPE]: {
     flex: '0 0 auto',
     height: '210px',
   },
-});
+}));
 
 export const CarouselImage = styled('img')({
   width: '100%',
@@ -27,40 +28,39 @@ export const CarouselImage = styled('img')({
   display: 'block',
 });
 
-export const CarouselOverlay = styled(Box)(({ theme }) => ({
-  position: 'absolute',
-  inset: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  textAlign: 'center',
-  background: 'linear-gradient(180deg, rgba(7,9,14,0.3) 0%, rgba(7,9,14,0.75) 100%)',
-  paddingLeft: theme.spacing(5),
-  paddingRight: theme.spacing(5),
-  [theme.breakpoints.up('sm')]: {
-    paddingLeft: theme.spacing(7),
-    paddingRight: theme.spacing(7),
-  },
-  [theme.breakpoints.up('md')]: {
-    paddingLeft: theme.spacing(6),
-    paddingRight: theme.spacing(6),
-  },
-}));
+export const CarouselOverlay = styled(Box)(({ theme }) => {
+  const bg = theme.palette.background.default;
+  return {
+    position: 'absolute',
+    inset: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    background: `linear-gradient(180deg, ${alpha(bg, 0.3)} 0%, ${alpha(bg, 0.75)} 100%)`,
+    paddingLeft: theme.spacing(5),
+    paddingRight: theme.spacing(5),
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing(7),
+      paddingRight: theme.spacing(7),
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: theme.spacing(6),
+      paddingRight: theme.spacing(6),
+    },
+  };
+});
 
 export const CarouselTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
   fontWeight: 800,
   letterSpacing: '0.08em',
-  textShadow: '0 0 18px rgba(0, 229, 255, 0.35)',
+  textShadow: `0 0 18px ${alpha(theme.palette.primary.main, 0.35)}`,
   fontSize: '1.1rem',
   lineHeight: 1.15,
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '1.55rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: 'clamp(1.4rem, 3vw, 2.6rem)',
-  },
+  [theme.breakpoints.up('sm')]: { fontSize: '1.55rem' },
+  [theme.breakpoints.up('md')]: { fontSize: 'clamp(1.4rem, 3vw, 2.6rem)' },
 }));
 
 export const CarouselSubtitle = styled(Typography)(({ theme }) => ({
@@ -69,12 +69,8 @@ export const CarouselSubtitle = styled(Typography)(({ theme }) => ({
   maxWidth: '700px',
   fontSize: '0.7rem',
   lineHeight: 1.25,
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '0.88rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '1rem',
-  },
+  [theme.breakpoints.up('sm')]: { fontSize: '0.88rem' },
+  [theme.breakpoints.up('md')]: { fontSize: '1rem' },
 }));
 
 export const DotContainer = styled(Box)(({ theme }) => ({
@@ -84,9 +80,7 @@ export const DotContainer = styled(Box)(({ theme }) => ({
   gap: '8px',
   padding: '0.4vh 0',
   flexShrink: 0,
-  [theme.breakpoints.down('md')]: {
-    gap: '6px',
-  },
+  [theme.breakpoints.down('md')]: { gap: '6px' },
 }));
 
 interface DotProps {
@@ -101,7 +95,7 @@ export const PaginationDot = styled(Box, {
   borderRadius: '999px',
   cursor: 'pointer',
   transition: 'all 0.25s ease',
-  backgroundColor: active ? theme.palette.primary.main : 'rgba(0, 229, 255, 0.25)',
+  backgroundColor: active ? theme.palette.primary.main : alpha(theme.palette.primary.main, 0.25),
 }));
 
 export const PreviewGrid = styled(Box)(({ theme }) => ({
@@ -116,34 +110,32 @@ export const PreviewGrid = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const PreviewCard = styled(Box)(({ theme }) => ({
-  display: 'flex',
+export const PreviewCard = styled(ContentCard)(({ theme }) => ({
+  flexDirection: 'row',
   alignItems: 'center',
   gap: '12px',
   padding: '10px',
-  backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.3)',
-  borderRadius: theme.shape.borderRadius,
-  boxSizing: 'border-box',
-  minWidth: 0,
+  overflowY: 'visible',
   cursor: 'pointer',
   transition: 'border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
+  [theme.breakpoints.down('md')]: { padding: '10px', gap: '12px' },
+  [SHORT_LANDSCAPE]: { padding: '10px', gap: '12px' },
   '&:hover': {
     borderColor: theme.palette.primary.main,
-    boxShadow: '0 0 16px rgba(0, 229, 255, 0.14)',
+    boxShadow: `0 0 16px ${alpha(theme.palette.primary.main, 0.14)}`,
     transform: 'translateY(-1px)',
   },
 }));
 
-export const CardImageThumbnail = styled('img')({
+export const CardImageThumbnail = styled('img')(({ theme }) => ({
   width: '72px',
   height: '72px',
   objectFit: 'contain',
   objectPosition: 'center center',
   borderRadius: '4px',
-  border: '1px solid rgba(0, 229, 255, 0.35)',
+  border: `1px solid ${alpha(theme.palette.primary.main, 0.35)}`,
   flexShrink: 0,
-});
+}));
 
 export const PreviewCardContent = styled(Box)({
   flex: 1,

@@ -1,6 +1,7 @@
 // src/pages/Characters/Characters.styles.ts
-import { styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+import { ContentCard, ContentGrid, SHORT_LANDSCAPE } from '../../styles/shared.styles';
 
 export {
   PageContainer,
@@ -10,43 +11,11 @@ export {
   CarouselWrapper,
 } from '../../styles/shared.styles';
 
-export const SubGrid = styled(Box)({
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'nowrap',
-  gap: '1.5vw',
-  alignItems: 'stretch',
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    height: 'auto',
-  },
-});
+export const SubGrid = styled(ContentGrid)({});
 
-export const SubCard = styled(Box)(({ theme }) => ({
-  flex: 1,
-  minWidth: 0,
-  backgroundColor: theme.palette.background.paper,
-  border: '1px solid rgba(0, 229, 255, 0.28)',
-  borderRadius: theme.shape.borderRadius,
+export const SubCard = styled(ContentCard)({
   padding: '1vw',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-start',
-  gap: '1vh',
-  boxSizing: 'border-box',
-  boxShadow: '0 0 18px rgba(0, 229, 255, 0.05)',
-  overflowY: 'auto',
-  [theme.breakpoints.down('md')]: {
-    padding: '3vw',
-    gap: '1.2vh',
-  },
-  '@media (max-height: 450px) and (orientation: landscape)': {
-    padding: '12px 14px',
-    gap: '8px',
-    overflowY: 'visible',
-  },
-}));
+});
 
 export const SubImage = styled('img')(({ theme }) => ({
   width: '100%',
@@ -55,7 +24,7 @@ export const SubImage = styled('img')(({ theme }) => ({
   objectFit: 'cover',
   objectPosition: 'center 10%',
   borderRadius: '4px',
-  border: '1px solid rgba(0, 229, 255, 0.35)',
+  border: `1px solid ${alpha(theme.palette.primary.main, 0.35)}`,
   flexShrink: 0,
   cursor: 'pointer',
   transition: 'border-color 0.2s ease, transform 0.2s ease',
@@ -63,24 +32,27 @@ export const SubImage = styled('img')(({ theme }) => ({
     borderColor: theme.palette.primary.main,
   },
   [theme.breakpoints.down('md')]: {
-    height: '26dvh',
+    flex: '0 1 24dvh',
+    height: 'auto',
+    minHeight: '75px',
     maxHeight: '220px',
   },
-  '@media (max-height: 450px) and (orientation: landscape)': {
+  [SHORT_LANDSCAPE]: {
+    flex: '0 0 auto',
     height: '170px',
     maxHeight: '170px',
   },
 }));
 
 export const CardBody = styled(Box)({
-  flex: 1,
+  flex: '1 0 auto',
   minHeight: 0,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start',
   overflowY: 'auto',
   paddingRight: '4px',
-  '@media (max-height: 450px) and (orientation: landscape)': {
+  [SHORT_LANDSCAPE]: {
     flex: '0 0 auto',
     overflowY: 'visible',
     paddingRight: 0,
@@ -112,7 +84,7 @@ export const OriginBio = styled(Typography)(({ theme }) => ({
   marginTop: theme.spacing(0.4),
   paddingBottom: theme.spacing(0.5),
   marginBottom: theme.spacing(0.5),
-  borderBottom: '1px solid rgba(0, 229, 255, 0.16)',
+  borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.16)}`,
 }));
 
 export const KitList = styled(Box)(({ theme }) => ({
@@ -143,15 +115,19 @@ export const SlotBadge = styled('span', {
   borderRadius: '3px',
   verticalAlign: 'middle',
   color: isUltimate ? theme.palette.secondary.main : theme.palette.primary.main,
-  backgroundColor: isUltimate ? 'rgba(255, 64, 129, 0.14)' : 'rgba(0, 229, 255, 0.12)',
-  border: `1px solid ${isUltimate ? 'rgba(255, 64, 129, 0.38)' : 'rgba(0, 229, 255, 0.32)'}`,
+  backgroundColor: isUltimate
+    ? alpha(theme.palette.secondary.main, 0.14)
+    : alpha(theme.palette.primary.main, 0.12),
+  border: `1px solid ${
+    isUltimate ? alpha(theme.palette.secondary.main, 0.38) : alpha(theme.palette.primary.main, 0.32)
+  }`,
 }));
 
-export const MoveNameText = styled('span')({
-  color: '#f4f8ff',
+export const MoveNameText = styled('span')(({ theme }) => ({
+  color: theme.palette.text.primary,
   fontWeight: 700,
   marginRight: '5px',
-});
+}));
 
 export const MoveDescText = styled('span')(({ theme }) => ({
   color: theme.palette.text.secondary,
